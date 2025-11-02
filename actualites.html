@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NAUMUR - Découvrez nos projets récents, publications et événements marquants au Cameroun." data-en="NAUMUR - Discover our recent projects, publications, and significant events in Cameroon." />
+  <meta name="keywords" content="NAUMUR, actualités, projets, Cameroun, innovation" data-en="NAUMUR, news, projects, Cameroon, innovation" />
+  <title data-fr="NAUMUR — Actualités" data-en="NAUMUR — News">NAUMUR — Actualités</title>
+
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/png" href="logo.jpg">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="NAUMUR — Actualités" data-en="NAUMUR — News" />
+  <meta property="og:description" content="Découvrez nos projets récents, nos publications et nos événements marquants." data-en="Discover our recent projects, publications, and significant events." />
+  <meta property="og:image" content="/assets/naumur-share.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS for scroll animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+/* Styles supplémentaires pour les cards, modals, filtres et responsivité */
+    :root {
+      --actualites-gradient: linear-gradient(90deg, #6b21a8, #8b5cf6); /* Gradient pour Actualités */
+      --publications-gradient: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Gradient pour Publications */
+      --annonces-gradient: linear-gradient(90deg, #15803d, #22c55e); /* Gradient pour Annonces */
+    }
+
+    .news-section { 
+      padding: 40px 20px; 
+      background: #fff; 
+      color: #111; 
+      min-height: auto;
+    }
+    
+    .news-title { 
+      font-size: clamp(2rem, 5vw, 2.5rem); 
+      font-weight: 700; 
+      text-align: left; 
+      margin-bottom: 10px; 
+      color: #000; 
+    }
+    
+    .news-subtitle { 
+      font-size: clamp(1rem, 3vw, 1.2rem); 
+      font-weight: 400; 
+      text-align: left; 
+      margin-bottom: 30px; 
+      color: #666; 
+    }
+
+    /* Filtres de catégorie */
+    .filter-container {
+      margin-bottom: 40px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    
+    .filter-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #fff;
+    }
+    
+    .filter-button.active {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .filter-button[data-category="actualites"] {
+      background: var(--actualites-gradient);
+    }
+    
+    .filter-button[data-category="publications"] {
+      background: var(--publications-gradient);
+    }
+    
+    .filter-button[data-category="annonces"] {
+      background: var(--annonces-gradient);
+    }
+    
+    .filter-button:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    .category-section { 
+      margin-bottom: 60px; 
+      display: none; 
+    }
+    
+    .category-section.active { 
+      display: block; 
+    }
+    
+    .category-title { 
+      font-size: clamp(1.5rem, 4vw, 1.8rem); 
+      font-weight: 700; 
+      margin-bottom: 20px; 
+      position: relative; 
+      padding-left: 10px; 
+    }
+    
+    .category-title.actualites { 
+      background: var(--actualites-gradient); 
+      -webkit-background-clip: text; 
+      color: transparent; 
+    }
+    
+    .category-title.publications { 
+      background: var(--publications-gradient); 
+      -webkit-background-clip: text; 
+      color: transparent; 
+    }
+    
+    .category-title.annonces { 
+      background: var(--annonces-gradient); 
+      -webkit-background-clip: text; 
+      color: transparent; 
+    }
+    
+    .category-title::before { 
+      content: ""; 
+      position: absolute; 
+      left: 0; 
+      top: 0; 
+      bottom: 0; 
+      width: 4px; 
+      border-radius: 2px; 
+    }
+    
+    .category-title.actualites::before { 
+      background: #6b21a8; 
+    }
+    
+    .category-title.publications::before { 
+      background: #1e3a8a; 
+    }
+    
+    .category-title.annonces::before { 
+      background: #15803d; 
+    }
+    
+    .news-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 20px; 
+    }
+    
+    .news-card { 
+      background: #f9fafb; 
+      border-radius: 14px; 
+      padding: 20px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+    
+    .news-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    }
+    
+    .news-category { 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      margin-bottom: 5px; 
+    }
+    
+    .news-category.actualites { 
+      color: #6b21a8; 
+    }
+    
+    .news-category.publications { 
+      color: #1e3a8a; 
+    }
+    
+    .news-category.annonces { 
+      color: #15803d; 
+    }
+    
+    .news-date { 
+      font-size: 0.85rem; 
+      color: #999; 
+      margin-bottom: 10px; 
+    }
+    
+    .news-card-title { 
+      font-size: 1.2rem; 
+      font-weight: 700; 
+      color: #000; 
+      margin-bottom: 10px; 
+    }
+    
+    .news-description { 
+      font-size: 0.95rem; 
+      color: #666; 
+      line-height: 1.5; 
+      margin-bottom: 15px; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      display: -webkit-box; 
+      -webkit-line-clamp: 3; 
+      -webkit-box-orient: vertical; 
+    }
+    
+    .news-button { 
+      display: inline-block; 
+      padding: 8px 16px; 
+      border-radius: 8px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      color: #fff; 
+      transition: background 0.3s ease; 
+    }
+    
+    .news-button.actualites { 
+      background: var(--actualites-gradient); 
+    }
+    
+    .news-button.publications { 
+      background: var(--publications-gradient); 
+    }
+    
+    .news-button.annonces { 
+      background: var(--annonces-gradient); 
+    }
+    
+    .news-button:hover { 
+      opacity: 0.9; 
+      transform: scale(1.05); 
+    }
+
+    /* Modal styles */
+    .modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    
+    .modal-content { 
+      background-color: #fefefe; 
+      margin: 10% auto; 
+      padding: 20px; 
+      border: 1px solid #888; 
+      width: 90%; 
+      max-width: 600px; 
+      border-radius: 10px; 
+    }
+    
+    .close { 
+      color: #aaa; 
+      float: right; 
+      font-size: 28px; 
+      font-weight: bold; 
+    }
+    
+    .close:hover, .close:focus { 
+      color: black; 
+      text-decoration: none; 
+      cursor: pointer; 
+    }
+    
+    .modal-title { 
+      font-size: clamp(1.3rem, 4vw, 1.5rem); 
+      font-weight: 700; 
+      color: #000; 
+      margin-bottom: 10px; 
+    }
+    
+    .modal-date { 
+      font-size: 0.9rem; 
+      color: #999; 
+      margin-bottom: 15px; 
+    }
+    
+    .modal-description { 
+      font-size: clamp(0.9rem, 3vw, 1rem); 
+      color: #666; 
+      line-height: 1.6; 
+      margin-bottom: 20px; 
+    }
+    
+    .modal-actions { 
+      display: flex; 
+      gap: 10px; 
+      flex-wrap: wrap; 
+    }
+    
+    .modal-button { 
+      padding: 10px 20px; 
+      border: none; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      text-decoration: none; 
+      font-weight: 600; 
+      color: #fff; 
+      transition: background 0.3s ease; 
+    }
+    
+    .modal-button.actualites { 
+      background: var(--actualites-gradient); 
+    }
+    
+    .modal-button.publications { 
+      background: var(--publications-gradient); 
+    }
+    
+    .modal-button.annonces { 
+      background: var(--annonces-gradient); 
+    }
+    
+    .modal-button:hover { 
+      opacity: 0.9; 
+    }
+
+    /* Responsivité */
+    @media (max-width: 768px) {
+      .news-section { 
+        padding: 30px 15px; 
+      }
+      
+      .news-title { 
+        font-size: 2rem; 
+      }
+      
+      .news-subtitle { 
+        font-size: 1rem; 
+      }
+      
+      .filter-container { 
+        justify-content: center; 
+      }
+      
+      .filter-button { 
+        padding: 6px 12px; 
+        font-size: 0.85rem; 
+      }
+      
+      .news-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+      }
+      
+      .news-card { 
+        padding: 15px; 
+      }
+      
+      .modal-content { 
+        margin: 20% auto; 
+        width: 95%; 
+      }
+    }
+
+    @media (max-width: 480px) {
+      .news-title { 
+        font-size: 1.8rem; 
+      }
+      
+      .news-subtitle { 
+        font-size: 0.9rem; 
+      }
+      
+      .category-title { 
+        font-size: 1.5rem; 
+      }
+      
+      .filter-button { 
+        padding: 5px 10px; 
+        font-size: 0.8rem; 
+      }
+      
+      .news-card-title { 
+        font-size: 1.1rem; 
+      }
+      
+      .news-description { 
+        font-size: 0.9rem; 
+      }
+      
+      .news-button { 
+        padding: 6px 12px; 
+        font-size: 0.85rem; 
+      }
+      
+      .modal-button { 
+        padding: 8px 16px; 
+        font-size: 0.85rem; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="site-main">
+    <header class="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="logo.jpg" alt="NAUMUR logo" id="site-logo">
+        </div>
+        <nav>
+          <div class="nav-links" id="nav-links">
+            <a href="index.html#presentation" class="nav-link" data-fr="Présentation" data-en="Presentation">Présentation</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="expertise.html" class="nav-link" data-fr="Expertise" data-en="Expertise">Expertise</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="equipe.html" class="nav-link" data-fr="Équipe" data-en="Team">Équipe</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="recrutement.html" class="nav-link" data-fr="Recrutement" data-en="Recruitment">Recrutement</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="actualites.html" class="nav-link active" data-fr="Actualités" data-en="News">Actualités</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="https://wa.me/237680224786" class="nav-link whatsapp" data-fr="Whatsapp" data-en="Whatsapp"><i class="fab fa-whatsapp"></i>&nbsp;Whatsapp</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="#" class="nav-link lang-switch" id="lang-toggle" data-fr="English" data-en="Français">English</a>
+          </div>
+          <button class="hamburger" id="hamburger"><i class="fa fa-bars"></i></button>
+        </nav>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a><span style="color: white;font-size: 30px;">I</span>
+        <a href="expertise.html" data-fr="Expertise" data-en="Expertise">Expertise</a><span style="color: white;font-size: 30px;">I</span>
+        <a href="equipe.html" data-fr="Équipe" data-en="Team">Équipe</a><span style="color: white;font-size: 30px;">I</span>
+        <a href="recrutement.html" data-fr="Recrutement" data-en="Recruitment">Recrutement</a><span style="color: white;font-size: 30px;">I</span>
+        <a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a><span style="color: white;font-size: 30px;">I</span>
+        <a href="https://wa.me/237680224786" class="whatsapp" data-fr="Whatsapp" data-en="Whatsapp"><i class="fab fa-whatsapp"></i>Whatsapp</a><span style="color: white;font-size: 30px;">I</span>
+        <a href="#" id="lang-toggle" class="lang-switch" data-fr="English" data-en="Français">English</a>
+      </div>
+    </header>
+
+  
+   <section class="news-section">
+      <div class="container">
+        <h1 class="news-title" >Nous vous partageons nos dernières actualités et les publications des membres de notre équipe.</h1>
+        <p class="news-subtitle" >Chez NAUMUR, nous avons à cœur de partager les actualités du cabinet et de notre équipe, tout en informant les acteurs du monde des affaires sur les nouveautés législatives et réglementaires en matière de finance inclusive, de restructuration d’entreprises et de solutions numériques, afin de soutenir une croissance économique durable en Afrique.</p>
+
+        <!-- Filtre de catégorie -->
+        <div class="filter-container"  data-aos-delay="200">
+          <button class="filter-button active" data-category="all">Tous</button>
+          <button class="filter-button" data-category="actualites">Actualités</button>
+          <button class="filter-button" data-category="publications">Publications</button>
+          <button class="filter-button" data-category="annonces">Annonces</button>
+        </div>
+
+        <!-- Catégorie Actualités -->
+        <div class="category-section actualites active" data-category="actualites">
+          <h2 class="category-title actualites">Actualités</h2>
+          <div class="news-grid">
+            <!-- Card 1 -->
+            <div class="news-card" >
+              <div class="news-category actualites">Actualités</div>
+              <div class="news-date">15/09/2025</div>
+              <h3 class="news-card-title">Lancement du Projet PASNFI</h3>
+              <p class="news-description">Un programme de digitalisation pour les EMF visant à améliorer l’accès aux services financiers en Afrique subsaharienne. Ce projet intègre des solutions d’automatisation pour une inclusion financière accrue...</p>
+              <a href="#" class="news-button actualites" onclick="openModal('actualite1')">Voir l'actualité</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="news-card" >
+              <div class="news-category actualites">Actualités</div>
+              <div class="news-date">20/08/2025</div>
+              <h3 class="news-card-title">Partenariat avec des Institutions Locales</h3>
+              <p class="news-description">Organisation d’un atelier sur l’entrepreneuriat pour les jeunes à Yaoundé, en partenariat avec des bailleurs et PME locales. Focus sur la finance inclusive et le développement durable...</p>
+              <a href="#" class="news-button actualites" onclick="openModal('actualite2')">Voir l'actualité</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="news-card"  data-aos-delay="200">
+              <div class="news-category actualites">Actualités</div>
+              <div class="news-date">10/07/2025</div>
+              <h3 class="news-card-title">Conférence sur la Finance Inclusive</h3>
+              <p class="news-description">Participation à une conférence internationale sur les réformes structurelles en finances publiques, avec un accent sur l’accompagnement des PME en Afrique...</p>
+              <a href="#" class="news-button actualites" onclick="openModal('actualite3')">Voir l'actualité</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catégorie Publications -->
+        <div class="category-section publications active" data-category="publications">
+          <h2 class="category-title publications">Publications</h2>
+          <div class="news-grid">
+            <!-- Card 1 -->
+            <div class="news-card" >
+              <div class="news-category publications">Publications</div>
+              <div class="news-date">05/10/2025</div>
+              <h3 class="news-card-title">Rapport Annuel sur la Finance Inclusive</h3>
+              <p class="news-description">Analyse approfondie des tendances en microfinance et des impacts des solutions numériques sur les PME en Afrique. Inclut des cas d’études sur les systèmes de garanties...</p>
+              <a href="#" class="news-button publications" onclick="openModal('publication1')">Voir la publication</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="news-card" >
+              <div class="news-category publications">Publications</div>
+              <div class="news-date">25/09/2025</div>
+              <h3 class="news-card-title">Guide sur la Restructuration d'Entreprises</h3>
+              <p class="news-description">Conseils pratiques pour les plans de redressement des entreprises en difficulté, avec focus sur la comptabilité et la fiscalité en contexte africain...</p>
+              <a href="#" class="news-button publications" onclick="openModal('publication2')">Voir la publication</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="news-card"  data-aos-delay="200">
+              <div class="news-category publications">Publications</div>
+              <div class="news-date">15/08/2025</div>
+              <h3 class="news-card-title">Étude sur l'Automatisation des Finances Publiques</h3>
+              <p class="news-description">Exploration des outils d’analyse de données pour optimiser les processus budgétaires et les audits dans les administrations publiques...</p>
+              <a href="#" class="news-button publications" onclick="openModal('publication3')">Voir la publication</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catégorie Annonces -->
+        <div class="category-section annonces active" data-category="annonces">
+          <h2 class="category-title annonces">Annonces</h2>
+          <div class="news-grid">
+            <!-- Card 1 -->
+            <div class="news-card" >
+              <div class="news-category annonces">Annonces</div>
+              <div class="news-date">01/10/2025</div>
+              <h3 class="news-card-title">Recrutement de Consultants en Finance</h3>
+              <p class="news-description">Ouverture de postes pour des experts en finance inclusive et accompagnement des PME. Rejoignez notre équipe multidisciplinaire...</p>
+              <a href="#" class="news-button annonces" onclick="openModal('annonce1')">Voir l'annonce</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="news-card" >
+              <div class="news-category annonces">Annonces</div>
+              <div class="news-date">18/09/2025</div>
+              <h3 class="news-card-title">Appel à Partenariats pour Projets Durables</h3>
+              <p class="news-description">Recherche de bailleurs et institutions pour des collaborations en développement durable et innovation numérique en Afrique...</p>
+              <a href="#" class="news-button annonces" onclick="openModal('annonce2')">Voir l'annonce</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="news-card"  data-aos-delay="200">
+              <div class="news-category annonces">Annonces</div>
+              <div class="news-date">05/09/2025</div>
+              <h3 class="news-card-title">Formation en Ligne sur la Fiscalité</h3>
+              <p class="news-description">Lancement d’une session de formation virtuelle sur l’optimisation fiscale pour les EMF et PME, avec certification à la clé...</p>
+              <a href="#" class="news-button annonces" onclick="openModal('annonce3')">Voir l'annonce</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div id="actualite1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('actualite1')">&times;</span>
+      <h2 class="modal-title">Lancement du Projet PASNFI</h2>
+      <div class="modal-date">15/09/2025</div>
+      <p class="modal-description">Un programme de digitalisation pour les EMF visant à améliorer l’accès aux services financiers en Afrique subsaharienne. Ce projet intègre des solutions d’automatisation pour une inclusion financière accrue, en partenariat avec des bailleurs internationaux. Il vise à transformer les défis en opportunités pour une croissance économique durable.</p>
+      <div class="modal-actions">
+        <a class="modal-button actualites" href="data:text/plain;charset=utf-8,Lancement%20du%20Projet%20PASNFI%0A15/09/2025%0AUn%20programme%20de%20digitalisation%20pour%20les%20EMF%20visant%20%C3%A0%20am%C3%A9liorer%20l%E2%80%99acc%C3%A8s%20aux%20services%20financiers%20en%20Afrique%20subsaharienne.%20Ce%20projet%20int%C3%A8gre%20des%20solutions%20d%E2%80%99automatisation%20pour%20une%20inclusion%20financi%C3%A8re%20accrue,%20en%20partenariat%20avec%20des%20bailleurs%20internationaux.%20Il%20vise%20%C3%A0%20transformer%20les%20d%C3%A9fis%20en%20opportunit%C3%A9s%20pour%20une%20croissance%20%C3%A9conomique%20durable." download="actualite_pasnfi.txt">Télécharger</a>
+        <a class="modal-button actualites" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20l'actualité%20:%20Lancement%20du%20Projet%20PASNFI%20du%2015/09/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="actualite2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('actualite2')">&times;</span>
+      <h2 class="modal-title">Partenariat avec des Institutions Locales</h2>
+      <div class="modal-date">20/08/2025</div>
+      <p class="modal-description">Organisation d’un atelier sur l’entrepreneuriat pour les jeunes à Yaoundé, en partenariat avec des bailleurs et PME locales. Focus sur la finance inclusive et le développement durable, avec des sessions pratiques sur l’accès au crédit et la structuration opérationnelle.</p>
+      <div class="modal-actions">
+        <a class="modal-button actualites" href="data:text/plain;charset=utf-8,Partenariat%20avec%20des%20Institutions%20Locales%0A20/08/2025%0AOrganisation%20d%E2%80%99un%20atelier%20sur%20l%E2%80%99entrepreneuriat%20pour%20les%20jeunes%20%C3%A0%20Yaound%C3%A9,%20en%20partenariat%20avec%20des%20bailleurs%20et%20PME%20locales.%20Focus%20sur%20la%20finance%20inclusive%20et%20le%20d%C3%A9veloppement%20durable,%20avec%20des%20sessions%20pratiques%20sur%20l%E2%80%99acc%C3%A8s%20au%20cr%C3%A9dit%20et%20la%20structuration%20op%C3%A9rationnelle." download="actualite_partenariat.txt">Télécharger</a>
+        <a class="modal-button actualites" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20l'actualité%20:%20Partenariat%20avec%20des%20Institutions%20Locales%20du%2020/08/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="actualite3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('actualite3')">&times;</span>
+      <h2 class="modal-title">Conférence sur la Finance Inclusive</h2>
+      <div class="modal-date">10/07/2025</div>
+      <p class="modal-description">Participation à une conférence internationale sur les réformes structurelles en finances publiques, avec un accent sur l’accompagnement des PME en Afrique. Discussions sur l’intégration de l’analyse de données pour des résultats durables.</p>
+      <div class="modal-actions">
+        <a class="modal-button actualites" href="data:text/plain;charset=utf-8,Conf%C3%A9rence%20sur%20la%20Finance%20Inclusive%0A10/07/2025%0AParticipation%20%C3%A0%20une%20conf%C3%A9rence%20internationale%20sur%20les%20r%C3%A9formes%20structurelles%20en%20finances%20publiques,%20avec%20un%20accent%20sur%20l%E2%80%99accompagnement%20des%20PME%20en%20Afrique.%20Discussions%20sur%20l%E2%80%99int%C3%A9gration%20de%20l%E2%80%99analyse%20de%20donn%C3%A9es%20pour%20des%20r%C3%A9sultats%20durables." download="actualite_conference.txt">Télécharger</a>
+        <a class="modal-button actualites" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20l'actualité%20:%20Conf%C3%A9rence%20sur%20la%20Finance%20Inclusive%20du%2010/07/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="publication1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('publication1')">&times;</span>
+      <h2 class="modal-title">Rapport Annuel sur la Finance Inclusive</h2>
+      <div class="modal-date">05/10/2025</div>
+      <p class="modal-description">Analyse approfondie des tendances en microfinance et des impacts des solutions numériques sur les PME en Afrique. Inclut des cas d’études sur les systèmes de garanties, l’accès au crédit et les réformes fiscales pour une optimisation conforme.</p>
+      <div class="modal-actions">
+        <a class="modal-button publications" href="data:text/plain;charset=utf-8,Rapport%20Annuel%20sur%20la%20Finance%20Inclusive%0A05/10/2025%0AAnalyse%20approfondie%20des%20tendances%20en%20microfinance%20et%20des%20impacts%20des%20solutions%20num%C3%A9riques%20sur%20les%20PME%20en%20Afrique.%20Inclut%20des%20cas%20d%E2%80%99%C3%A9tudes%20sur%20les%20syst%C3%A8mes%20de%20garanties,%20l%E2%80%99acc%C3%A8s%20au%20cr%C3%A9dit%20et%20les%20r%C3%A9formes%20fiscales%20pour%20une%20optimisation%20conforme." download="publication_rapport_annuel.txt">Télécharger</a>
+        <a class="modal-button publications" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20la%20publication%20:%20Rapport%20Annuel%20sur%20la%20Finance%20Inclusive%20du%2005/10/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="publication2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('publication2')">&times;</span>
+      <h2 class="modal-title">Guide sur la Restructuration d'Entreprises</h2>
+      <div class="modal-date">25/09/2025</div>
+      <p class="modal-description">Conseils pratiques pour les plans de redressement des entreprises en difficulté, avec un focus sur la comptabilité et la fiscalité en contexte africain. Ce guide propose des stratégies adaptées pour optimiser la gestion financière et juridique.</p>
+      <div class="modal-actions">
+        <a class="modal-button publications" href="data:text/plain;charset=utf-8,Guide%20sur%20la%20Restructuration%20d'Entreprises%0A25/09/2025%0AConseils%20pratiques%20pour%20les%20plans%20de%20redressement%20des%20entreprises%20en%20difficult%C3%A9,%20avec%20un%20focus%20sur%20la%20comptabilit%C3%A9%20et%20la%20fiscalit%C3%A9%20en%20contexte%20africain.%20Ce%20guide%20propose%20des%20strat%C3%A9gies%20adapt%C3%A9es%20pour%20optimiser%20la%20gestion%20financi%C3%A8re%20et%20juridique." download="publication_restructuration.txt">Télécharger</a>
+        <a class="modal-button publications" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20la%20publication%20:%20Guide%20sur%20la%20Restructuration%20d'Entreprises%20du%2025/09/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="publication3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('publication3')">&times;</span>
+      <h2 class="modal-title">Étude sur l'Automatisation des Finances Publiques</h2>
+      <div class="modal-date">15/08/2025</div>
+      <p class="modal-description">Exploration des outils d’analyse de données pour optimiser les processus budgétaires et les audits dans les administrations publiques. Cette étude met en lumière les meilleures pratiques pour une gestion transparente et efficace.</p>
+      <div class="modal-actions">
+        <a class="modal-button publications" href="data:text/plain;charset=utf-8,%C3%89tude%20sur%20l'Automatisation%20des%20Finances%20Publiques%0A15/08/2025%0AExploration%20des%20outils%20d%E2%80%99analyse%20de%20donn%C3%A9es%20pour%20optimiser%20les%20processus%20budg%C3%A9taires%20et%20les%20audits%20dans%20les%20administrations%20publiques.%20Cette%20%C3%A9tude%20met%20en%20lumi%C3%A8re%20les%20meilleures%20pratiques%20pour%20une%20gestion%20transparente%20et%20efficace." download="publication_automatisation.txt">Télécharger</a>
+        <a class="modal-button publications" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20la%20publication%20:%20%C3%89tude%20sur%20l'Automatisation%20des%20Finances%20Publiques%20du%2015/08/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="annonce1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('annonce1')">&times;</span>
+      <h2 class="modal-title">Recrutement de Consultants en Finance</h2>
+      <div class="modal-date">01/10/2025</div>
+      <p class="modal-description">Ouverture de postes pour des experts en finance inclusive et accompagnement des PME. Rejoignez notre équipe multidisciplinaire pour contribuer à des projets à fort impact en Afrique.</p>
+      <div class="modal-actions">
+        <a class="modal-button annonces" href="data:text/plain;charset=utf-8,Recrutement%20de%20Consultants%20en%20Finance%0A01/10/2025%0AOuverture%20de%20postes%20pour%20des%20experts%20en%20finance%20inclusive%20et%20accompagnement%20des%20PME.%20Rejoignez%20notre%20%C3%A9quipe%20multidisciplinaire%20pour%20contribuer%20%C3%A0%20des%20projets%20%C3%A0%20fort%20impact%20en%20Afrique." download="annonce_recrutement.txt">Télécharger</a>
+        <a class="modal-button annonces" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20l'annonce%20:%20Recrutement%20de%20Consultants%20en%20Finance%20du%2001/10/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="annonce2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('annonce2')">&times;</span>
+      <h2 class="modal-title">Appel à Partenariats pour Projets Durables</h2>
+      <div class="modal-date">18/09/2025</div>
+      <p class="modal-description">Recherche de bailleurs et institutions pour des collaborations en développement durable et innovation numérique en Afrique. Participez à des initiatives pour une croissance économique inclusive.</p>
+      <div class="modal-actions">
+        <a class="modal-button annonces" href="data:text/plain;charset=utf-8,Appel%20%C3%A0%20Partenariats%20pour%20Projets%20Durables%0A18/09/2025%0ARecherche%20de%20bailleurs%20et%20institutions%20pour%20des%20collaborations%20en%20d%C3%A9veloppement%20durable%20et%20innovation%20num%C3%A9rique%20en%20Afrique.%20Participez%20%C3%A0%20des%20initiatives%20pour%20une%20croissance%20%C3%A9conomique%20inclusive." download="annonce_partenariats.txt">Télécharger</a>
+        <a class="modal-button annonces" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20l'annonce%20:%20Appel%20%C3%A0%20Partenariats%20pour%20Projets%20Durables%20du%2018/09/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="annonce3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('annonce3')">&times;</span>
+      <h2 class="modal-title">Formation en Ligne sur la Fiscalité</h2>
+      <div class="modal-date">05/09/2025</div>
+      <p class="modal-description">Lancement d’une session de formation virtuelle sur l’optimisation fiscale pour les EMF et PME, avec certification à la clé. Apprenez les meilleures pratiques pour une gestion fiscale conforme et efficace.</p>
+      <div class="modal-actions">
+        <a class="modal-button annonces" href="data:text/plain;charset=utf-8,Formation%20en%20Ligne%20sur%20la%20Fiscalit%C3%A9%0A05/09/2025%0ALancement%20d%E2%80%99une%20session%20de%20formation%20virtuelle%20sur%20l%E2%80%99optimisation%20fiscale%20pour%20les%20EMF%20et%20PME,%20avec%20certification%20%C3%A0%20la%20cl%C3%A9.%20Apprenez%20les%20meilleures%20pratiques%20pour%20une%20gestion%20fiscale%20conforme%20et%20efficace." download="annonce_formation.txt">Télécharger</a>
+        <a class="modal-button annonces" href="https://wa.me/237680224786?text=Bonjour,%20je%20suis%20intéressé%20par%20l'annonce%20:%20Formation%20en%20Ligne%20sur%20la%20Fiscalit%C3%A9%20du%2005/09/2025">Contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+
+    // Gestion du menu hamburger
+    const hamb = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamb.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Gestion du scroll pour la navbar
+    const navbar = document.querySelector('.navbar');
+    const hero = document.getElementById('site-main');
+    function onScroll() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom <= navbar.offsetHeight) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Gestion des liens d'ancre
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      if (a.getAttribute('href') === '#') return;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        mobileMenu.style.display = 'none';
+      });
+    });
+
+    // Gestion du changement de langue
+    let currentLang = 'fr';
+    document.querySelectorAll('.lang-switch, #lang-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        currentLang = currentLang === 'fr' ? 'en' : 'fr';
+        document.querySelectorAll('[data-fr]').forEach((el) => {
+          el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        });
+        document.querySelectorAll('.lang-switch, #lang-toggle').forEach((el) => {
+          el.innerText = currentLang === 'fr' ? 'English' : 'Français';
+        });
+      });
+    });
+
+    // Gestion des filtres
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const categorySections = document.querySelectorAll('.category-section');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        // Mettre à jour les boutons actifs
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Afficher/masquer les sections
+        categorySections.forEach(section => {
+          if (category === 'all' || section.getAttribute('data-category') === category) {
+            section.classList.add('active');
+          } else {
+            section.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Gestion des modals
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+
+    const hamb = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamb.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const navbar = document.querySelector('.navbar');
+    const hero = document.getElementById('actualites');
+    const navLinks = document.querySelectorAll('.nav-links a:not(.lang-switch)');
+    const mobileLinks = document.querySelectorAll('.mobile-menu a:not(.lang-switch)');
+    const logo = document.getElementById('site-logo');
+    const hamburger = document.getElementById('hamburger');
+
+    function onScroll() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom <= navbar.offsetHeight) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      if (a.getAttribute('href') === '#') return;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        mobileMenu.style.display = 'none';
+      });
+    });
+
+    let currentLang = 'fr';
+    document.querySelectorAll('.lang-switch, #lang-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        currentLang = currentLang === 'fr' ? 'en' : 'fr';
+        document.querySelectorAll('[data-fr]').forEach((el) => {
+          el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        });
+        document.querySelectorAll('.lang-switch, #lang-toggle').forEach((el) => {
+          el.innerText = currentLang === 'fr' ? 'English' : 'Français';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

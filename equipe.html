@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-fr="Équipe - NAUMUR" data-en="Team - NAUMUR">Équipe - NAUMUR</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="logo.jpg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+  <!-- NAVBAR (alignée sur index.html) -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <img src="logo.jpg" alt="NAUMUR logo" id="site-logo">
+      </div>
+      <nav>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#presentation" class="nav-link" data-fr="Présentation" data-en="Presentation">Présentation</a><span style="color:#fff;font-size:30px;">I</span>
+          <a href="expertise.html" class="nav-link" data-fr="Expertise" data-en="Expertise">Expertise</a><span style="color:#fff;font-size:30px;">I</span>
+          <a href="equipe.html" class="nav-link active" data-fr="Équipe" data-en="Team">Équipe</a><span style="color:#fff;font-size:30px;">I</span>
+          <a href="recrutement.html" class="nav-link" data-fr="Recrutement" data-en="Recruitment">Recrutement</a><span style="color:#fff;font-size:30px;">I</span>
+          <a href="actualites.html" class="nav-link" data-fr="Actualités" data-en="News">Actualités</a><span style="color:#fff;font-size:30px;">I</span>
+          <a href="https://wa.me/237680224786" class="nav-link whatsapp" data-fr="Whatsapp" data-en="Whatsapp"><i class="fab fa-whatsapp"></i>&nbsp;<span data-fr="Whatsapp" data-en="Whatsapp">Whatsapp</span></a><span style="color:#fff;font-size:30px;">I</span>
+          <a href="#" class="nav-link" id="lang-toggle" data-fr="English" data-en="Français">English</a>
+        </div>
+        <button class="hamburger" id="hamburger"><i class="fa fa-bars"></i></button>
+      </nav>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a>
+      <a href="expertise.html" data-fr="Expertise" data-en="Expertise">Expertise</a>
+      <a href="equipe.html" data-fr="Équipe" data-en="Team">Équipe</a>
+      <a href="recrutement.html" data-fr="Recrutement" data-en="Recruitment">Recrutement</a>
+      <a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a>
+      <a href="https://wa.me/237680224786" class="whatsapp"><i class="fab fa-whatsapp"></i> <span data-fr="Whatsapp" data-en="Whatsapp">Whatsapp</span></a>
+      <a href="#" id="lang-toggle-mobile" data-fr="English" data-en="Français">English</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="team-section">
+      <div class="container">
+        <h2 class="team-title" data-fr="Notre Équipe d’Experts" data-en="Our Team of Experts">Notre Équipe d’Experts</h2>
+        <p class="team-description" data-fr="Une équipe pluridisciplinaire engagée pour la réussite de chaque mission." data-en="A multidisciplinary team committed to making every engagement a success.">
+          Une équipe pluridisciplinaire engagée pour la réussite de chaque mission.
+        </p>
+
+        <!-- SECTION 1 : DIRECTION (les trois alignés) -->
+        <h3 class="section-title" data-fr="Direction" data-en="Leadership">Direction</h3>
+        <div class="team-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,300px));gap:10px;justify-content:flex-start;margin:0;">
+          <!-- Garnier -->
+          <div class="team-member fade-in">
+            <div class="team-image-wrapper">
+              <img src="equipe/GN.jpg" alt="Garnier NGANDO" class="team-image" onload="this.style.opacity=1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <div class="image-fallback"></div>
+            </div>
+            <div class="divider"></div>
+            <h3>Garnier NGANDO</h3>
+            <div class="role" data-fr="Directeur Général" data-en="Chief Executive Officer">Directeur Général</div>
+            <div class="badges">
+              <span class="badge" data-fr="Gouvernance publique" data-en="Public governance">Gouvernance publique</span>
+              <span class="badge" data-fr="Stratégie & finance" data-en="Strategy & finance">Stratégie & finance</span>
+              <span class="badge" data-fr="Conduite du changement" data-en="Change management">Conduite du changement</span>
+            </div>
+            <div class="divider"></div>
+            <p data-fr="Polytechnicien et diplômé ESCP, formé à l’ENA (Paris). Expérience en conseil et banque (Accenture, Lazard, Société Générale). Fondateur de NAUMUR (2016)." data-en="Graduate of École Polytechnique and ESCP, trained at ENA (Paris). Experience in consulting and banking (Accenture, Lazard, Société Générale). Founder of NAUMUR (2016).">
+              Polytechnicien et diplômé ESCP, formé à l’ENA (Paris). Expérience en conseil et banque (Accenture, Lazard, Société Générale). Fondateur de NAUMUR (2016).
+            </p>
+          </div>
+
+          <!-- Louise -->
+          <div class="team-member fade-in">
+            <div class="team-image-wrapper">
+              <img src="equipe/LN.png" alt="Louise NGONGANG" class="team-image" onload="this.style.opacity=1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <div class="image-fallback"></div>
+            </div>
+            <div class="divider"></div>
+            <h3>Louise NGONGANG</h3>
+            <div class="role" data-fr="Directrice Cameroun" data-en="Country Director (Cameroon)">Directrice Cameroun</div>
+            <div class="badges">
+              <span class="badge" data-fr="Contrôle & audit" data-en="Control & audit">Contrôle & audit</span>
+              <span class="badge" data-fr="Financement d’entreprise" data-en="Corporate financing">Financement d’entreprise</span>
+              <span class="badge" data-fr="Relations publiques" data-en="Public relations">Relations publiques</span>
+            </div>
+            <div class="divider"></div>
+            <p data-fr="Ancienne cadre de la CNPS, diplômée en analyse économique (Univ. de Yaoundé) et formée en audit & contrôle (Paris). Pilote les relations institutionnelles et le bureau de Yaoundé." data-en="Former CNPS executive, with a degree in economic analysis (University of Yaoundé) and training in audit & control (Paris). Leads institutional relations and the Yaoundé office.">
+              Ancienne cadre de la CNPS, diplômée en analyse économique (Univ. de Yaoundé) et formée en audit & contrôle (Paris). Pilote les relations institutionnelles et le bureau de Yaoundé.
+            </p>
+          </div>
+
+          <!-- Célestin -->
+          <div class="team-member fade-in">
+            <div class="team-image-wrapper">
+              <img src="equipe/CL.png" alt="Célestin LENGUE" class="team-image" onload="this.style.opacity=1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <div class="image-fallback"></div>
+            </div>
+            <div class="divider"></div>
+            <h3>Célestin LENGUE</h3>
+            <div class="role" data-fr="Conseiller du Directeur Général" data-en="Senior Advisor to CEO">Conseiller du Directeur Général</div>
+            <div class="badges">
+              <span class="badge" data-fr="Gouvernance économique" data-en="Economic governance">Gouvernance économique</span>
+              <span class="badge" data-fr="Audit & stratégie" data-en="Audit & strategy">Audit & stratégie</span>
+              <span class="badge" data-fr="Financement" data-en="Financing">Financement</span>
+            </div>
+            <div class="divider"></div>
+            <p data-fr="Ancien élève de l’ESSEC Paris, DEA en stratégies financières internationales. Appui sur l’audit, la stratégie et le financement d’entreprise." data-en="Graduate of ESSEC Paris with a DEA in international financial strategies. Supports audit, strategy, and corporate financing.">
+              Ancien élève de l’ESSEC Paris, DEA en stratégies financières internationales. Appui sur l’audit, la stratégie et le financement d’entreprise.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION 2 : ASSOCIÉS -->
+        <h3 class="section-title" data-fr="Associés" data-en="Associates">Associés</h3>
+        <div class="team-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,300px));gap:10px;justify-content:flex-start;margin:0;">
+          <!-- Ajara -->
+          <div class="team-member fade-in">
+            <div class="team-image-wrapper">
+              <img src="equipe/AJ.jpg" alt="Ajara Colette PEBOURA LAMARE" class="team-image" onload="this.style.opacity=1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <div class="image-fallback"></div>
+            </div>
+            <div class="divider"></div>
+            <h3>Ajara Colette PEBOURA LAMARE</h3>
+            <div class="role" data-fr="Responsable du pilotage / opérations" data-en="Head of Program Delivery / Operations">Responsable du pilotage / opérations</div>
+            <div class="badges">
+              <span class="badge" data-fr="Contrôle de gestion" data-en="Management control">Contrôle de gestion</span>
+              <span class="badge" data-fr="Diagnostics & études" data-en="Diagnostics & studies">Diagnostics & études</span>
+              <span class="badge" data-fr="Plans d’affaires" data-en="Business plans">Plans d’affaires</span>
+            </div>
+            <div class="divider"></div>
+            <p data-fr="Pilote l’exécution opérationnelle : suivi des tâches, analyses EHS et coordination des diagnostics, études de marché et dossiers de crédit." data-en="Leads operational delivery: task tracking, EHS analyses, and coordination of diagnostics, market studies, and credit files.">
+              Pilote l’exécution opérationnelle : suivi des tâches, analyses EHS et coordination des diagnostics, études de marché et dossiers de crédit.
+            </p>
+          </div>
+
+          <!-- Bessala (ressources & suivi du personnel) -->
+          <div class="team-member fade-in">
+            <div class="team-image-wrapper">
+              <img src="equipe/BT.jpg" alt="BESSALA Théodore" class="team-image" onload="this.style.opacity=1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <div class="image-fallback"></div>
+            </div>
+            <div class="divider"></div>
+            <h3>BESSALA Théodore</h3>
+            <div class="role" data-fr="Responsable des ressources" data-en="Head of Resources">Responsable des ressources</div>
+            <div class="badges">
+              <span class="badge" data-fr="Suivi du personnel" data-en="Staff monitoring">Suivi du personnel</span>
+              <span class="badge" data-fr="Économie & data" data-en="Economics & data">Économie & data</span>
+              <span class="badge" data-fr="Reporting & procédures" data-en="Reporting & procedures">Reporting & procédures</span>
+            </div>
+            <div class="divider"></div>
+            <p data-fr="Économiste (Master ÉgA). Enquêtes et analyses de données, modélisation statistique, dossiers de crédit, business plans et rapports. En charge du suivi du personnel et de la gestion des ressources." data-en="Economist (Master). Leads surveys and data analysis, statistical modeling, credit files, business plans and reports. Oversees staff monitoring and resource management.">
+              Économiste (Master ÉgA). Enquêtes et analyses de données, modélisation statistique, dossiers de crédit, business plans et rapports. En charge du suivi du personnel et de la gestion des ressources.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="site-footer">
+      <div id="footer-content">
+        <div class="footer-column">
+          <h4>NAUMUR</h4>
+          <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.7);" data-fr="Cabinet de conseil pionnier en Afrique, spécialisé en finance inclusive, accompagnement des PME, et solutions Data & Automatisation." data-en="Pioneering consulting firm in Africa, specialized in inclusive finance, SME support, and Data & Automation solutions.">
+            Cabinet de conseil pionnier en Afrique, spécialisé en finance inclusive, accompagnement des PME, et solutions Data & Automatisation.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4 data-fr="Cabinet" data-en="Company">Cabinet</h4>
+          <ul>
+            <li><a href="index.html#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a></li>
+            <li><a href="expertise.html" data-fr="Expertise" data-en="Expertise">Expertise</a></li>
+            <li><a href="equipe.html" data-fr="Équipe" data-en="Team">Équipe</a></li>
+            <li><a href="recrutement.html" data-fr="Recrutement" data-en="Recruitment">Recrutement</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-fr="Informations" data-en="Information">Informations</h4>
+          <ul>
+            <li><a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a></li>
+            <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+            <li><a href="mentions-legales.html" data-fr="Mentions Légales" data-en="Legal Notice">Mentions Légales</a></li>
+            <li><a href="politique-confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-fr="Nous contacter" data-en="Contact us">Nous contacter</h4>
+          <ul>
+            <li><a href="mailto:contact@naumur.com" style="word-break:break-all;">contact@naumur.com</a></li>
+            <li><a href="tel:+237680224786">+237 680 224 786</a></li>
+          </ul>
+          <div class="social-links" style="margin-top:15px;">
+            <a href="https://linkedin.com/company/naumur" target="_blank" aria-label="LinkedIn NAUMUR"><i class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com/naumur" target="_blank" aria-label="Facebook NAUMUR"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/237680224786" target="_blank" aria-label="Whatsapp NAUMUR"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="footer-bottom">
+        <div class="copyright">
+          &reg;NAUMUR - 2025 - <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu toggle
+    const hamb = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (hamb && mobileMenu) {
+      hamb.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('inview'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Language switch (updated with fixes)
+    let currentLang = localStorage.getItem('lang') || 'fr';
+
+    function switchLang() {
+      currentLang = (currentLang === 'fr') ? 'en' : 'fr';
+      localStorage.setItem('lang', currentLang);
+      
+      // Update all translatable elements using textContent to preserve HTML structure
+      document.querySelectorAll('[data-fr]').forEach((el) => {
+        const txt = el.getAttribute(`data-${currentLang}`);
+        if (txt !== null) el.textContent = txt;
+      });
+      
+      // Update toggle button labels
+      const toggles = document.querySelectorAll('#lang-toggle, #lang-toggle-mobile');
+      toggles.forEach((el) => {
+        el.textContent = (currentLang === 'fr') ? 'English' : 'Français';
+      });
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      switchLang(); // Apply saved or default language
+    });
+
+    // Add event listeners with error handling
+    const langToggle = document.getElementById('lang-toggle');
+    const langToggleMobile = document.getElementById('lang-toggle-mobile');
+    
+    if (langToggle) {
+      langToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchLang();
+      });
+    }
+    
+    if (langToggleMobile) {
+      langToggleMobile.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (mobileMenu) mobileMenu.style.display = 'none';
+        switchLang();
+      });
+    }
+  </script>
+</body>
+</html>
