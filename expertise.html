@@ -74,7 +74,7 @@
                   <div class="value-group">
                     <div style="display: flex; align-items: center;">
                       <i class="fas fa-hand-holding-usd" style="color: var(--accent); margin-right: 10px;"></i>
-                      <div class="value title">Finance inclusive</div>
+                      <div class="value title">Finance Inclusive</div>
                     </div>
                     <div class="value description">Conception de produits inclusifs, mise en place de systèmes de garanties et facilitation de l'accès au crédit pour les Institutions de Microfinance (EMF) et les Petites et Moyennes Entreprises (PME).</div>
                   </div>
@@ -86,7 +86,7 @@
                   <div class="value-group">
                     <div style="display: flex; align-items: center;">
                       <i class="fas fa-chart-line" style="color: var(--accent); margin-right: 10px;"></i>
-                      <div class="value title">Finances publiques</div>
+                      <div class="value title">Finance Publique</div>
                     </div>
                     <div class="value description">Appui aux administrations dans les processus de budgétisation et d'exécution budgétaire, réalisation d'audits et accompagnement des réformes structurelles.</div>
                   </div>
@@ -109,8 +109,8 @@
                   <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop" alt="Restructuration - Business recovery" class="expertise-image">
                   <div class="value-group">
                     <div style="display: flex; align-items: center;">
-                      <i class="fas fa-recycle" style="color: var(--accent); margin-right: 10px;"></i>
-                      <div class="value title">Restructuration & Liquidation</div>
+                      <i class="fas fa-lightbulb" style="color: var(--accent); margin-right: 10px;"></i>
+                      <div class="value title">Entrepreneuriat</div>
                     </div>
                     <div class="value description">Élaboration de plans de redressement pour les entreprises en difficulté, gestion des procédures associées et accompagnement juridique lors des phases de restructuration ou de liquidation.</div>
                   </div>
@@ -122,7 +122,7 @@
                   <div class="value-group">
                     <div style="display: flex; align-items: center;">
                       <i class="fas fa-briefcase" style="color: var(--accent); margin-right: 10px;"></i>
-                      <div class="value title">Accompagnement des entreprises</div>
+                      <div class="value title">Accompagnement des Entreprises</div>
                     </div>
                     <div class="value description">Réalisation de diagnostics complets, assistance à la structuration opérationnelle et définition de plans d’actions stratégiques pour la croissance.</div>
                   </div>
@@ -133,8 +133,8 @@
                   <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=300&fit=crop" alt="Entreprenariat - Startup ideas" class="expertise-image">
                   <div class="value-group">
                     <div style="display: flex; align-items: center;">
-                      <i class="fas fa-lightbulb" style="color: var(--accent); margin-right: 10px;"></i>
-                      <div class="value title">Entreprenariat</div>
+                      <i class="fas fa-graduation-cap" style="color: var(--accent); margin-right: 10px;"></i>
+                      <div class="value title">Éducation Économique</div>
                     </div>
                     <div class="value description">Appui aux porteurs de projets et startups, de l'idéation à la mise en œuvre, incluant l'élaboration du business model et la stratégie de lancement sur le marché (go-to-market).</div>
                   </div>
@@ -309,6 +309,14 @@
         });
       });
     });
+    // Make logo clickable to go home
+    (function(){
+      const logoEl = document.getElementById('site-logo');
+      if (logoEl) {
+        logoEl.style.cursor = 'pointer';
+        logoEl.addEventListener('click', function(){ window.location.href = 'index.html'; });
+      }
+    })();
   </script>
 </body>
 </html>

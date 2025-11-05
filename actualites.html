@@ -549,6 +549,55 @@
         </div>
       </div>
     </section>
+     <footer id="site-footer">
+    <div id="footer-content">
+        <div class="footer-column">
+            <h4>NAUMUR</h4>
+            <p style="font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, 0.7);">
+                Cabinet de conseil pionnier en Afrique, spécialisé en finance inclusive, accompagnement des PME, et solutions Data & Automatisation.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Cabinet</h4>
+            <ul>
+                <li><a href="#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a></li>
+                <li><a href="expertise.html" data-fr="Expertise" data-en="Expertise">Expertise</a></li>
+                <li><a href="equipe.html" data-fr="Équipe" data-en="Team">Équipe</a></li>
+                <li><a href="recrutement.html" data-fr="Carrières" data-en="Careers">Carrières</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Informations</h4>
+            <ul>
+                <li><a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a></li>
+                <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+                <li><a href="mentions-legales.html" data-fr="Mentions Légales" data-en="Legal Notice">Mentions Légales</a></li>
+                <li><a href="politique-confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Nous contacter</h4>
+            <ul>
+                <li><a href="mailto:contact@naumur.com" style="word-break: break-all;">contact@naumur.com</a></li>
+                <li><a href="tel:+237680224786">+237 680 224 786</a></li>
+            </ul>
+            <div class="social-links" style="margin-top: 15px;">
+                <a href="https://linkedin.com/company/naumur" target="_blank" aria-label="LinkedIn NAUMUR"><i class="fab fa-linkedin"></i></a>
+                <a href="https://facebook.com/naumur" target="_blank" aria-label="Facebook NAUMUR"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/237680224786" target="_blank" aria-label="Whatsapp NAUMUR"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-bottom">
+        <div class="copyright">
+            &reg;NAUMUR - 2025 - Tous droits réservés.
+        </div>
+    </div>
+</footer>
   </main>
 
   <!-- Modals -->
@@ -809,5 +858,15 @@
       });
     });
   </script>
-</body>
+  <script>
+    // Make logo clickable to go home
+    (function(){
+      const logoEl = document.getElementById('site-logo');
+      if (logoEl) {
+        logoEl.style.cursor = 'pointer';
+        logoEl.addEventListener('click', function(){ window.location.href = 'index.html'; });
+      }
+    })();
+  </script>
+  </body>
 </html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PADESCE – MCDC | Règles de suivi et vérification | NAUMUR</title>
+  <meta name="description" content="Règles applicables aux prestations suivies dans le cadre du PADESCE – MCDC : transmission des listes, déroulement des formations, collaboration avec les enquêteurs, gestion des incidents, évaluation et mise à jour.">
+  <meta name="keywords" content="PADESCE, MCDC, règles, suivi, vérification, formation, NAUMUR, Cameroun">
+  <link rel="canonical" href="https://naumur.com/padesce.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="PADESCE – MCDC | Règles de suivi et vérification | NAUMUR" />
+  <meta property="og:description" content="Règles applicables aux prestations suivies dans le cadre du PADESCE – MCDC." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="logo.jpg" />
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/png" href="logo.jpg">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Base styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Page styles (scoped) -->
+  <style>
+    .hero.padesce {
+      min-height: 48vh;
+      background: radial-gradient(1200px 600px at 20% 20%, rgba(139,92,246,.25), transparent 60%),
+                  linear-gradient(90deg, rgba(30,0,150,.85), rgba(123,0,123,.85));
+      background-size: cover;
+      background-position: center;
+    }
+    .hero.padesce .hero-title { letter-spacing: -0.01em; }
+    .hero.padesce .hero-sub { max-width: 900px; margin-inline: auto; }
+    .legal-wrap { max-width: var(--max-width); margin: 40px auto; padding: 0 20px; }
+    .legal-grid { display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: start; }
+    .toc { position: sticky; top: calc(var(--nav-height) + 16px); background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(2,6,23,.08); padding: 16px; border: 1px solid rgba(2,6,23,.06); }
+    .toc h3 { margin: 6px 0 10px; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+    .toc a { display: block; text-decoration: none; color: #111; padding: 10px 10px; border-radius: 8px; font-weight: 600; transition: background .25s, color .25s; }
+    .toc a:hover { background: rgba(139,92,246,.08); color: var(--accent); }
+    .toc .minor { font-weight: 500; opacity: .85; padding-left: 18px; }
+    .legal-content { display: grid; gap: 22px; }
+    .article-card { background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(2,6,23,.08); border: 1px solid rgba(2,6,23,.06); padding: 22px 22px; }
+    .article-card h2 { margin: 0 0 8px; font-size: clamp(18px, 2.6vw, 26px); color: var(--accent); }
+    .article-card h3 { margin: 16px 0 8px; font-size: 18px; }
+    .article-card p { margin: 10px 0; line-height: 1.6; }
+    .article-card ul { margin: 8px 0 8px 18px; line-height: 1.6; }
+    .badge-soft { display: inline-block; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #fff; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .note { background: rgba(107,33,168,.06); border-left: 4px solid var(--accent); padding: 10px 12px; border-radius: 8px; }
+    @media (max-width: 980px) {
+      .legal-grid { grid-template-columns: 1fr; }
+      .toc { position: relative; top: auto; }
+    }
+  </style>
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "PADESCE – MCDC | Règles de suivi et vérification",
+    "url": "https://naumur.com/padesce.html",
+    "description": "Règles applicables aux prestations suivies dans le cadre du PADESCE – MCDC.",
+    "publisher": { "@type": "Organization", "name": "NAUMUR" }
+  }
+  </script>
+  <script>
+    // Make logo clickable to go home
+    (function(){
+      const logoEl = document.getElementById('site-logo');
+      if (logoEl) {
+        logoEl.style.cursor = 'pointer';
+        logoEl.addEventListener('click', function(){ window.location.href = 'index.html'; });
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main id="site-main">
+    <!-- NAVBAR (reuse site style) -->
+    <header class="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="logo.jpg" alt="NAUMUR logo" id="site-logo">
+        </div>
+        <nav>
+          <div class="nav-links" id="nav-links">
+            <a href="index.html#presentation" class="nav-link">Présentation</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="expertise.html" class="nav-link">Expertise</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="equipe.html" class="nav-link">Équipe</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="recrutement.html" class="nav-link">Recrutement</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="actualites.html" class="nav-link">Actualités</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="https://wa.me/237680224786" class="nav-link whatsapp"><i class="fab fa-whatsapp"></i>&nbsp;Whatsapp</a>
+          </div>
+          <button class="hamburger" id="hamburger"><i class="fa fa-bars"></i></button>
+        </nav>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#presentation">Présentation</a>
+        <a href="expertise.html">Expertise</a>
+        <a href="equipe.html">Équipe</a>
+        <a href="recrutement.html">Recrutement</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="https://wa.me/237680224786">Whatsapp</a>
+      </div>
+    </header>
+    <!-- HERO -->
+    <section class="hero padesce">
+      <div class="hero-inner">
+        <div class="badge-soft">PADESCE – MCDC</div>
+        <h1 class="hero-title">Règles applicables aux prestations suivies</h1>
+        <p class="hero-sub">
+          Dans le cadre du suivi et de la vérification des formations financées par le PADESCE–MCDC, chaque prestation
+          fait l’objet d’un contrôle systématique visant à garantir la conformité, la traçabilité et la qualité des activités réalisées.
+        </p>
+      </div>
+    </section>
+    <!-- CONTENT -->
+    <div class="legal-wrap">
+      <div class="legal-grid">
+        <aside class="toc" aria-label="Sommaire">
+          <h3>Sommaire</h3>
+          <a href="#preambule">Préambule</a>
+          <a href="#article-1">Article 1 — Listes d’apprenants</a>
+          <a href="#article-2">Article 2 — Déroulement des formations</a>
+          <a href="#article-3">Article 3 — Collaboration sur le terrain</a>
+          <a href="#article-4">Article 4 — Incidents et interruptions</a>
+          <a href="#article-5">Article 5 — Évaluation et restitution</a>
+          <a href="#article-6">Article 6 — Mise à jour des règles</a>
+          <a href="#ancre-contact" class="minor"><i class="fa fa-link"></i> Contact</a>
+        </aside>
+        <div class="legal-content">
+          <article id="preambule" class="article-card" itemscope itemtype="https://schema.org/Article">
+            <meta itemprop="headline" content="Règles applicables aux prestations suivies dans le cadre du PADESCE – MCDC">
+            <h2>Préambule</h2>
+            <p>
+              Dans le cadre du suivi et de la vérification des formations financées par le PADESCE–MCDC,
+              chaque prestation fait l’objet d’un contrôle systématique visant à garantir la conformité, la traçabilité
+              et la qualité des activités réalisées.
+            </p>
+            <p>Les prestations sont évaluées sur la base des critères suivants :</p>
+            <ul>
+              <li>la conformité contractuelle (thème, durée, effectifs, respect des proportions de genre lorsqu’elles sont indiquées) ;</li>
+              <li>la présence effective des apprenants ;</li>
+              <li>la qualité logistique et environnementale (éclairage, ventilation, sécurité, hygiène, mobilier, équipements) ;</li>
+              <li>la satisfaction des bénéficiaires.</li>
+            </ul>
+            <p class="note">
+              Les présentes règles ont pour objet d’harmoniser les pratiques et de garantir une évaluation équitable et transparente
+              des formations sur le terrain.
+            </p>
+          </article>
+          <article id="article-1" class="article-card">
+            <h2>Article 1 — De la transmission et de la validation des listes d’apprenants</h2>
+            <h3>1.1</h3>
+            <p>La liste des apprenants transmise par le prestataire avant le démarrage de la formation est définitive. Aucune modification, suppression ou ajout ne peut être effectué après le lancement de la cohorte.</p>
+            <h3>1.2</h3>
+            <p>Les listes peuvent être transmises jusqu’à la veille du démarrage de la formation. Elles doivent comporter les éléments suivants : noms, prénoms, numéro de téléphone, cohorte et site de formation.</p>
+            <h3>1.3</h3>
+            <p>Chaque apprenant doit disposer d’un numéro de téléphone actif afin de recevoir le code SMS d’identification. En cas d’absence de code, la présence sera validée par la photo, la CNI filmée et le numéro de téléphone noté par l’enquêteur mandaté.</p>
+          </article>
+          <article id="article-2" class="article-card">
+            <h2>Article 2 — Du déroulement des formations</h2>
+            <h3>2.1</h3>
+            <p>Les formations doivent se dérouler dans des locaux adaptés et fonctionnels, garantissant un confort minimal pour les participants (chaises, tables, ventilation, accès à l’eau et sanitaires).</p>
+            <h3>2.2</h3>
+            <p>Le calendrier transmis et validé doit être scrupuleusement respecté. Toute modification d’horaire, de site ou de date doit être signalée à Naumur avant mise en œuvre.</p>
+            <h3>2.3</h3>
+            <p>Chaque formation doit comprendre au moins 90 heures effectives. Tout déficit horaire constaté sera considéré comme un écart à la conformité contractuelle.</p>
+            <h3>2.4</h3>
+            <p>Les effectifs prévus et les proportions de genre doivent être respectés, lorsque ces éléments ont été spécifiés dans la convention.</p>
+          </article>
+          <article id="article-3" class="article-card">
+            <h2>Article 3 — De la collaboration avec les enquêteurs sur le terrain</h2>
+            <h3>3.1</h3>
+            <p>Les prestataires doivent faciliter l’accès des enquêteurs mandatés aux sites de formation.</p>
+            <h3>3.2</h3>
+            <p>Ils doivent leur permettre d’effectuer, sans perturber la séance, les opérations de vérification prévues :</p>
+            <ul>
+              <li>prises de vidéos et de photos à des fins de preuve ;</li>
+              <li>vérification des présences, des conditions matérielles et du thème de la formation.</li>
+            </ul>
+            <h3>3.3</h3>
+            <p>Les enquêteurs sont autorisés à interagir brièvement avec le formateur pour obtenir les précisions nécessaires (intitulé du thème, calendrier, effectifs présents).</p>
+            <h3>3.4</h3>
+            <p>Les prestataires veilleront à maintenir un climat de collaboration et de courtoisie avec les agents de suivi et de contrôle.</p>
+          </article>
+          <article id="article-4" class="article-card">
+            <h2>Article 4 — Des incidents et interruptions de formation</h2>
+            <h3>4.1</h3>
+            <p>En cas d’incident (absence prolongée du formateur, problème d’accès, conditions sécuritaires, intempéries), le prestataire doit informer immédiatement Naumur par écrit (appel suivi de message ou de courriel).</p>
+            <h3>4.2</h3>
+            <p>Toute suspension de formation doit être formellement notifiée à Naumur.</p>
+            <ul>
+              <li>Si la suspension dure plus de deux semaines, la formation devra être reprise à zéro.</li>
+              <li>Si la suspension dépasse trois semaines, la formation sera considérée comme achevée et non poursuivable.</li>
+            </ul>
+            <h3>4.3</h3>
+            <p>Toute reprise de formation doit faire l’objet d’un nouveau calendrier communiqué à Naumur avant redémarrage.</p>
+          </article>
+          <article id="article-5" class="article-card">
+            <h2>Article 5 — De l’évaluation et de la restitution</h2>
+            <h3>5.1</h3>
+            <p>À la fin de chaque formation, un contrôle de satisfaction des bénéficiaires est organisé sur place ou à distance.</p>
+            <h3>5.2</h3>
+            <p>Les résultats du suivi et des vérifications feront l’objet d’un rapport consolidé transmis au PADESCE et au MCDC.</p>
+            <h3>5.3</h3>
+            <p>Ce rapport conditionne la validation finale de la prestation et l’intégration des données dans les tableaux de suivi consolidés.</p>
+          </article>
+          <article id="article-6" class="article-card">
+            <h2>Article 6 — De la mise à jour des règles</h2>
+            <h3>6.1</h3>
+            <p>Les présentes règles sont publiées sur le site web du cabinet Naumur, dans l’espace dédié au suivi du PADESCE–MCDC.</p>
+            <h3>6.2</h3>
+            <p>Elles pourront être actualisées périodiquement, en concertation avec le PADESCE, en fonction :</p>
+            <ul>
+              <li>des retours de terrain des équipes de suivi,</li>
+              <li>des observations du PADESCE,</li>
+              <li>et des recommandations formulées à partir des bilans d’exécution.</li>
+            </ul>
+          </article>
+          <div id="ancre-contact" class="article-card">
+            <h2>Contact</h2>
+            <p>Pour toute question relative aux présentes règles : <a href="mailto:contact@naumur.com">contact@naumur.com</a> — <a href="tel:+237680224786">+237 680 224 786</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer id="site-footer">
+      <div id="footer-content">
+        <div class="footer-column">
+          <h4>NAUMUR</h4>
+          <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.7);">
+            Cabinet de conseil pionnier en Afrique, spécialisé en finance inclusive, accompagnement des PME, et solutions Data & Automatisation.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Cabinet</h4>
+          <ul>
+            <li><a href="index.html#presentation">Présentation</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="equipe.html">Équipe</a></li>
+            <li><a href="recrutement.html">Recrutement</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="https://naumur.com/padesce.html">PADESCE – MCDC</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Nous contacter</h4>
+          <ul>
+            <li><a href="mailto:contact@naumur.com" style="word-break:break-all;">contact@naumur.com</a></li>
+            <li><a href="tel:+237680224786">+237 680 224 786</a></li>
+          </ul>
+          <div class="social-links" style="margin-top:15px;">
+            <a href="https://linkedin.com/company/naumur" target="_blank" aria-label="LinkedIn NAUMUR"><i class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com/naumur" target="_blank" aria-label="Facebook NAUMUR"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/237680224786" target="_blank" aria-label="Whatsapp NAUMUR"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="footer-bottom">
+        <div class="copyright">
+          &reg;NAUMUR - 2025 - <span>Tous droits réservés.</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <!-- SCRIPTS: minimal (menu) -->
+  <script>
+    const hamb = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (hamb && mobileMenu) {
+      hamb.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+  </script>
+</body>
+</html>

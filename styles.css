@@ -1,5 +1,4 @@
-
-   :root {
+:root {
   --accent: #6b21a8;
   --accent-2: #8b5cf6;
   --bg: #ffffff;
@@ -12,7 +11,7 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; font-family: 'Montserrat', sans-serif;; color: #111; }
 
-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 10px 30px;  }
+section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 10px 30px;  }
 main { scroll-snap-type: y mandatory; overflow-y: auto; height: 100vh; }
 
 .hero {
@@ -113,7 +112,7 @@ a:focus { outline: 3px solid rgba(139,92,246,0.25); outline-offset: 2px; }
   list-style: none;
   margin: 30px 0 10px 0;
   position: relative;
-  padding-left: 10px; /* Space for the vertical bar */
+  padding-left: 5px; /* Space for the vertical bar */
   display: flex; /* Align icon, title, and description */
   align-items: flex-start; /* Align items to the top */
 }
@@ -449,7 +448,7 @@ p { text-align: justify; }
       border-radius: 50%; 
       width: 40px; 
       height: 40px; 
-      /* animation: spin 1s linear infinite;  */
+      /* animation: spin 1s linear infinite;  */
     } */
     .image-fallback { 
       font-size: 1.2rem; 
@@ -506,3 +505,208 @@ p { text-align: justify; }
       .team-member .role { font-size: 0.9rem; }
       .team-member p { font-size: 0.9rem; }
     }
+    
+/* ---------------------------------------------------------------------- */
+/* --- NOUVEAUX STYLES SLIDER EXPERTISE (CLASSES RENOMMÉES & AJUSTÉES) --- */
+/* ---------------------------------------------------------------------- */
+
+/* Conteneur de la section expertise pour centrer le titre et le texte d'intro */
+.expertise-slider {
+    padding: 60px 0;
+    background: var(--bg);
+}
+
+/* Texte d'introduction */
+.expertise-slider .intro-text {
+    font-size: 1.25rem; /* Légèrement réduit pour l'harmonie */
+    margin-bottom: 20px;
+    font-weight: 500; /* Moins gras */
+    text-align: center;
+    color: #111;
+}
+
+/* Titre de la section (Style hérité, mais adapté) */
+.expertise-slider .section-title {
+    margin: 0 auto 50px auto;
+    display: table; 
+}
+
+/* Conteneur du défilement (Slider Wrapper) - Ajout de padding pour les boutons de navigation */
+.slider-wrapper {
+    position: relative;
+    padding: 0 40px; 
+}
+
+.slider-scroller {
+    overflow-x: scroll;
+    padding-bottom: 20px; 
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.slider-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+/* Liste d'expertise (Horizontal Flexbox) */
+.slider-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.slider-list li {
+    flex: 0 0 320px; /* Taille de carte conservée */
+    margin-right: 20px;
+    transition: opacity 0.3s ease-in-out;
+    padding-left: 0; 
+    margin: 0 20px 0 0;
+}
+
+.slider-list li::before {
+    display: none; 
+}
+
+
+/* Style de la carte d'expertise */
+.slider-item {
+    background-color: var(--bg);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(107, 33, 168, 0.1); 
+    transition: transform 0.4s cubic-bezier(.25, .8, .25, 1), box-shadow 0.4s cubic-bezier(.25, .8, .25, 1);
+    height: 100%; 
+    position: relative; 
+    border: 1px solid rgba(230, 230, 230, 0.5);
+}
+
+/* Effet Hover (Animation) */
+.slider-item:hover {
+    transform: translateY(-10px); /* Réduit légèrement l'effet pour plus de subtilité */
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.2);
+    border-color: var(--accent-2);
+}
+
+.slider-image {
+    width: 100%;
+    height: 220px; /* Légèrement augmenté pour l'image */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.slider-item:hover .slider-image {
+    transform: scale(1.05); /* Effet zoom plus discret */
+}
+
+.value-group {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px; /* Réduit légèrement la hauteur pour compenser le retrait du bouton rond */
+}
+
+.value-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.slider-icon {
+    color: var(--accent); 
+    margin-right: 12px;
+    font-size: 2rem; /* Augmenté pour l'impact visuel */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-item:hover .slider-icon {
+    color: var(--accent-2);
+    transform: scale(1.05);
+}
+
+.slider-list .value.title {
+    font-size: 1.5rem; /* Augmenté pour la visibilité */
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+.value.description {
+    font-size: 1rem; /* Ajusté à 1rem (16px) pour une meilleure lecture */
+    color: var(--muted);
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* SUPPRESSION DU BOUTON ROND INDIVIDUEL */
+.slider-link-btn {
+    display: none; 
+}
+
+
+/* Boutons de navigation (Slider Controls) */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--accent);
+    border: 2px solid var(--accent-2);
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 992px) {
+    /* Cache les boutons de navigation sur les écrans plus petits */
+    .nav-btn {
+        display: none;
+    }
+    .slider-wrapper {
+        padding: 0;
+    }
+    .slider-list li {
+        flex: 0 0 90%; 
+        margin-right: 15px;
+    }
+    .expertise-slider .intro-text {
+        font-size: 1.1rem;
+    }
+    .slider-list .value.title {
+        font-size: 1.3rem; 
+    }
+    .slider-icon {
+        font-size: 1.7rem;
+    }
+}
+/* Styles pour le bouton général "Voir plus d'expertises" (en bas) */
+.text-center {
+    text-align: center;
+    margin-top: 40px;
+}

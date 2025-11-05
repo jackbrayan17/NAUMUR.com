@@ -274,5 +274,15 @@
       });
     }
   </script>
-</body>
+  <script>
+    // Make logo clickable to go home
+    (function(){
+      const logoEl = document.getElementById('site-logo');
+      if (logoEl) {
+        logoEl.style.cursor = 'pointer';
+        logoEl.addEventListener('click', function(){ window.location.href = 'index.html'; });
+      }
+    })();
+  </script>
+  </body>
 </html>
