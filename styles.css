@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --accent: #6b21a8;
   --accent-2: #8b5cf6;
   --bg: #ffffff;
@@ -11,7 +11,7 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; font-family: 'Montserrat', sans-serif;; color: #111; }
 
-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 10px 30px;  }
+section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 10px 30px; Â }
 main { scroll-snap-type: y mandatory; overflow-y: auto; height: 100vh; }
 
 .hero {
@@ -59,6 +59,78 @@ main { scroll-snap-type: y mandatory; overflow-y: auto; height: 100vh; }
 .nav-links a.active { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: white; }
 .nav-links span{
   font-weight: lighter;
+}
+
+/* Global text justification except specified exceptions */
+p { text-align: justify; }
+h2, h2 + p { text-align: left; }
+.hero .hero-sub { text-align: center !important; }
+#presentation p { text-align: left; }
+
+/* Mobile hamburger button base */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile menu container */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, rgba(30,0,150,0.95), rgba(123,0,123,0.95));
+  backdrop-filter: blur(6px);
+  padding: 12px 16px;
+  z-index: 60;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: 12px 8px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.mobile-menu a:hover { background: rgba(255,255,255,0.1); }
+
+/* Prevent background scroll when menu open */
+body.no-scroll { overflow: hidden; }
+.logo { 
+
+  display: flex; /* ðŸ‘ˆ Added Flexbox */
+
+  align-items: center; /* ðŸ‘ˆ Vertically center items */
+
+  gap: 10px; /* ðŸ‘ˆ Add space between logo image and text */
+
+}.company-name {
+
+  color: white;
+
+  font-size: 24px; /* Adjust size as needed, 24px is a good starting point */
+
+  font-weight: 700; /* Bold font weight */
+
+  text-transform: uppercase; /* Make sure it's all caps as requested */
+
+  letter-spacing: 1px;
+
+  /* Optional: Smooth transition for when the navbar is scrolled */
+
+  transition: color 0.3s ease; 
+
+}.navbar.scrolled .company-name {
+
+  color: #111; /* Or any dark color you want when the navbar is light */
+
 }
 .hamburger { display: none; background: var(--accent-2); border-radius: 5px; padding-bottom: 0; color: #fff; font-size: 22px; transition: color 0.3s ease; }
 .navbar.scrolled .hamburger { color: #111; }
@@ -112,10 +184,13 @@ a:focus { outline: 3px solid rgba(139,92,246,0.25); outline-offset: 2px; }
   list-style: none;
   margin: 30px 0 10px 0;
   position: relative;
-  padding-left: 5px; /* Space for the vertical bar */
+  padding-left: 10px; /* Space for the vertical bar */
   display: flex; /* Align icon, title, and description */
   align-items: flex-start; /* Align items to the top */
 }
+
+/* Ensure content spans full li width next to the icon */
+.values-list .value-group { width: 100%; min-width: 0; }
 
 .values-list li::before {
   content: "";
@@ -163,7 +238,7 @@ a:focus { outline: 3px solid rgba(139,92,246,0.25); outline-offset: 2px; }
 .lang-switch { cursor: pointer; color: var(--accent-2); font-weight: 600; transition: color 0.3s ease; }
 .lang-switch:hover { color: var(--accent); }
 
-p { text-align: justify; }
+p { text-align:justify; }
 .scroll-down {
   position: absolute; /* or fixed if you want it at bottom */
   bottom: 20px;
@@ -301,7 +376,7 @@ p { text-align: justify; }
 }
 /* --- FOOTER STYLES --- */
 #site-footer {
-    background-color: #111; /* Fond noir ou très sombre pour contraster avec le blanc */
+    background-color: #111; /* Fond noir ou trÃ¨s sombre pour contraster avec le blanc */
     color: #fff;
     padding: 40px 16px 20px;
     font-family: var(--font-family);
@@ -320,7 +395,7 @@ p { text-align: justify; }
 }
 
 .footer-column {
-    flex: 1 1 200px; /* Flexibilité pour les petites colonnes */
+    flex: 1 1 200px; /* FlexibilitÃ© pour les petites colonnes */
     min-width: 150px;
 }
 
@@ -377,7 +452,7 @@ p { text-align: justify; }
     color: var(--accent);
 }
 
-/* Responsivité du Footer */
+/* ResponsivitÃ© du Footer */
 @media (max-width: 768px) {
     #footer-content {
         flex-direction: column;
@@ -409,33 +484,108 @@ p { text-align: justify; }
     .team-description { font-size: 1rem; color: var(--muted); text-align: center; margin-bottom: 40px; }
     .team-member { 
       position: relative; 
-      width: 300px; /* Fixed width for cards */
-      min-height: 450px; /* Fixed minimum height for consistency */
-      padding: 20px; 
-      border-radius: 14px; 
-      background: #f9fafb; 
+      width: 100%;
+      max-width: 280px; /* match the square image size */
+      padding: 16px; 
+      border-radius: 26px; 
+      background: linear-gradient(160deg, rgba(255,255,255,0.95), var(--card-soft));
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 16px 35px rgba(79, 70, 229, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease; 
       margin: 0 auto; /* Center cards in grid */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      --card-accent: #6b21a8;
+      --card-soft: rgba(213, 190, 255, 0.6);
+      --card-glow: rgba(147, 51, 234, 0.35);
     }
-    .team-member:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+    .team-member:hover { transform: translateY(-6px); box-shadow: 0 20px 36px var(--card-glow); }
+    .team-member:nth-child(3n+2) {
+      --card-accent: #7c3aed;
+      --card-soft: rgba(124, 58, 237, 0.25);
+      --card-glow: rgba(124, 58, 237, 0.35);
+      border-color: rgba(124, 58, 237, 0.25);
+    }
+    .team-member:nth-child(3n) {
+      --card-accent: #a855f7;
+      --card-soft: rgba(168, 85, 247, 0.25);
+      --card-glow: rgba(168, 85, 247, 0.35);
+      border-color: rgba(168, 85, 247, 0.35);
+    }
     .team-image-wrapper { 
       position: relative; 
       width: 100%; 
-      height: 200px; 
+      aspect-ratio: 1 / 1;
       overflow: hidden; 
-      border-radius: 10px; 
-      margin-bottom: 15px; 
-      background: #eee; /* Fallback background */
+      border-radius: 22px; 
+      margin-bottom: 10px; 
+      background: #fff; /* Fallback background */
       display: flex; 
       align-items: center; 
       justify-content: center; 
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      box-shadow: inset 0 4px 10px rgba(124, 58, 237, 0.18);
     }
     .team-image { 
-      width: 70%; 
-      height: 100% ;
+      width: 100%; 
+      height: 100%;
       object-fit: cover; 
       opacity: 0; 
       transition: opacity 0.5s ease; 
+    }
+    .team-member > h3,
+    .team-member > .role,
+    .team-member > .badges,
+    .team-member > p {
+      width: 100%;
+    }
+    .team-member h3 { 
+      margin: 0; 
+      padding: 8px 12px; 
+      border-radius: 14px; 
+      background: rgba(255,255,255,0.9); 
+      border: 1px solid rgba(255,255,255,0.8);
+      text-align: center;
+      color: var(--card-accent);
+      letter-spacing: 0.02em;
+      font-size: 1.3rem;
+    }
+    .team-member .role {
+      margin: 0;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      background: rgba(99, 102, 241, 0.15);
+      color: #291041;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+    }
+    .team-member .badges {
+      background: rgba(249, 250, 255, 0.85);
+      border-radius: 16px;
+      padding: 10px 12px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 6px 18px rgba(124, 58, 237, 0.18);
+      justify-content: center;
+      gap: 6px;
+    }
+    .team-member .badge {
+      background: var(--accent);
+      color: #fff;
+    }
+    .team-member p { 
+      font-size: 0.95rem; 
+      color: #2a0a4c; 
+      line-height: 1.4;
+      background: rgba(255,255,255,0.9);
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(79, 70, 229, 0.15);
+      box-shadow: 0 8px 12px rgba(99, 102, 241, 0.2);
+      margin: 0;
     }
     /* .team-image.loaded { opacity: 1; } */
     /* .image-loader { 
@@ -448,8 +598,8 @@ p { text-align: justify; }
       border-radius: 50%; 
       width: 40px; 
       height: 40px; 
-      /* animation: spin 1s linear infinite;  */
-    } */
+      /* animation: spin 1s linear infinite; Â */
+    */
     .image-fallback { 
       font-size: 1.2rem; 
       font-weight: 600; 
@@ -461,14 +611,13 @@ p { text-align: justify; }
       0% { transform: translate(-50%, -50%) rotate(0deg); } 
       100% { transform: translate(-50%, -50%) rotate(360deg); } 
     } */
-    .divider { 
+    .team-member .divider { 
       height: 2px; 
-      background: linear-gradient(90deg, var(--accent), var(--accent-2)); 
-      margin: 15px 0; 
+      background: linear-gradient(90deg, var(--card-accent), rgba(255,255,255,0)); 
+      margin: 10px 0; 
       border-radius: 2px; 
+      box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
     }
-    .team-member h3 { font-size: 1.5rem; font-weight: 700; color: var(--accent); margin: 10px 0 5px; }
-    .team-member .role { font-size: 1rem; color: var(--muted); margin-bottom: 10px; }
     .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
     .badge { 
       background: var(--accent); 
@@ -480,34 +629,29 @@ p { text-align: justify; }
       transition: background 0.3s ease, transform 0.3s ease; 
     }
     .badge:hover { background: var(--accent-2); transform: scale(1.05); }
-    .team-member p { font-size: 0.95rem; color: #333; line-height: 1.5; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.inview { opacity: 1; transform: translateY(0); }
 
     /* Responsive Design */
     @media (max-width: 900px) {
-      .team-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-      .team-member { width: 280px; min-height: 420px; }
-      .team-image-wrapper { height: 180px; }
+      .team-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+      .team-member { max-width: 260px; }
     }
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
-      .team-member { width: 100%; max-width: 320px; min-height: 400px; }
-      .team-image-wrapper { height: 160px; }
+      .team-member { max-width: 260px; }
       .team-title { font-size: 1.8rem; }
       .team-description { font-size: 0.9rem; }
       .badge { font-size: 0.85rem; padding: 5px 10px; }
     }
     @media (max-width: 400px) {
-      .team-member { min-height: 380px; }
-      .team-image-wrapper { height: 140px; }
       .team-member h3 { font-size: 1.3rem; }
       .team-member .role { font-size: 0.9rem; }
       .team-member p { font-size: 0.9rem; }
     }
     
 /* ---------------------------------------------------------------------- */
-/* --- NOUVEAUX STYLES SLIDER EXPERTISE (CLASSES RENOMMÉES & AJUSTÉES) --- */
+/* --- NOUVEAUX STYLES SLIDER EXPERTISE (CLASSES RENOMMÃ‰ES & AJUSTÃ‰ES) --- */
 /* ---------------------------------------------------------------------- */
 
 /* Conteneur de la section expertise pour centrer le titre et le texte d'intro */
@@ -518,20 +662,20 @@ p { text-align: justify; }
 
 /* Texte d'introduction */
 .expertise-slider .intro-text {
-    font-size: 1.25rem; /* Légèrement réduit pour l'harmonie */
+    font-size: 1.25rem; /* LÃ©gÃ¨rement rÃ©duit pour l'harmonie */
     margin-bottom: 20px;
     font-weight: 500; /* Moins gras */
     text-align: center;
     color: #111;
 }
 
-/* Titre de la section (Style hérité, mais adapté) */
+/* Titre de la section (Style hÃ©ritÃ©, mais adaptÃ©) */
 .expertise-slider .section-title {
     margin: 0 auto 50px auto;
     display: table; 
 }
 
-/* Conteneur du défilement (Slider Wrapper) - Ajout de padding pour les boutons de navigation */
+/* Conteneur du dÃ©filement (Slider Wrapper) - Ajout de padding pour les boutons de navigation */
 .slider-wrapper {
     position: relative;
     padding: 0 40px; 
@@ -558,7 +702,7 @@ p { text-align: justify; }
 }
 
 .slider-list li {
-    flex: 0 0 320px; /* Taille de carte conservée */
+    flex: 0 0 320px; /* Taille de carte conservÃ©e */
     margin-right: 20px;
     transition: opacity 0.3s ease-in-out;
     padding-left: 0; 
@@ -584,14 +728,14 @@ p { text-align: justify; }
 
 /* Effet Hover (Animation) */
 .slider-item:hover {
-    transform: translateY(-10px); /* Réduit légèrement l'effet pour plus de subtilité */
+    transform: translateY(-10px); /* RÃ©duit lÃ©gÃ¨rement l'effet pour plus de subtilitÃ© */
     box-shadow: 0 12px 30px rgba(139, 92, 246, 0.2);
     border-color: var(--accent-2);
 }
 
 .slider-image {
     width: 100%;
-    height: 220px; /* Légèrement augmenté pour l'image */
+    height: 220px; /* LÃ©gÃ¨rement augmentÃ© pour l'image */
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease;
@@ -605,7 +749,7 @@ p { text-align: justify; }
     padding: 25px;
     display: flex;
     flex-direction: column;
-    min-height: 150px; /* Réduit légèrement la hauteur pour compenser le retrait du bouton rond */
+    min-height: 150px; /* RÃ©duit lÃ©gÃ¨rement la hauteur pour compenser le retrait du bouton rond */
 }
 
 .value-header {
@@ -617,7 +761,7 @@ p { text-align: justify; }
 .slider-icon {
     color: var(--accent); 
     margin-right: 12px;
-    font-size: 2rem; /* Augmenté pour l'impact visuel */
+    font-size: 2rem; /* AugmentÃ© pour l'impact visuel */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -627,14 +771,14 @@ p { text-align: justify; }
 }
 
 .slider-list .value.title {
-    font-size: 1.5rem; /* Augmenté pour la visibilité */
+    font-size: 1.5rem; /* AugmentÃ© pour la visibilitÃ© */
     font-weight: 700;
     color: var(--accent);
     line-height: 1.2;
 }
 
 .value.description {
-    font-size: 1rem; /* Ajusté à 1rem (16px) pour une meilleure lecture */
+    font-size: 1rem; /* AjustÃ© Ã  1rem (16px) pour une meilleure lecture */
     color: var(--muted);
     line-height: 1.5;
     margin-top: 10px;
@@ -684,7 +828,7 @@ p { text-align: justify; }
 
 /* Responsive pour mobile */
 @media (max-width: 992px) {
-    /* Cache les boutons de navigation sur les écrans plus petits */
+    /* Cache les boutons de navigation sur les Ã©crans plus petits */
     .nav-btn {
         display: none;
     }
@@ -705,7 +849,7 @@ p { text-align: justify; }
         font-size: 1.7rem;
     }
 }
-/* Styles pour le bouton général "Voir plus d'expertises" (en bas) */
+/* Styles pour le bouton gÃ©nÃ©ral "Voir plus d'expertises" (en bas) */
 .text-center {
     text-align: center;
     margin-top: 40px;

@@ -1,22 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="NAUMUR - Rejoignez notre équipe pour une aventure humaine et professionnelle tournée vers l’impact et l’innovation." data-fr="NAUMUR - Rejoignez notre équipe pour une aventure humaine et professionnelle tournée vers l’impact et l’innovation." data-en="NAUMUR - Join our team for a human and professional adventure focused on impact and innovation." />
+  <meta name="description" content="NAUMUR - Rejoignez notre Equipe pour une aventure humaine et professionnelle tournee vers l'impact et l'innovation." data-fr="NAUMUR - Rejoignez notre Equipe pour une aventure humaine et professionnelle tournee vers l'impact et l'innovation." data-en="NAUMUR - Join our team for a human and professional adventure focused on impact and innovation." />
   <meta name="keywords" content="NAUMUR, recrutement, talents, Cameroun, innovation" data-fr="NAUMUR, recrutement, talents, Cameroun, innovation" data-en="NAUMUR, recruitment, talent, Cameroon, innovation" />
-  <title data-fr="NAUMUR — Recrutement" data-en="NAUMUR — Recruitment">NAUMUR — Recrutement</title>
+  <title data-fr="NAUMUR - Recrutement" data-en="NAUMUR - Recruitment">NAUMUR â€” Recrutement</title>
   <link rel="icon" type="image/png" href="logo.jpg">
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Ajustements spécifiques à la page de recrutement */
+    
     .recrutement-grid {
       display: flex;
-      align-items: stretch; /* hauteur égale */
-      gap: 30px;
-      margin-top: 30px;
+      align-items: stretch; 
+      gap: 16px;
+      margin-top: 20px;
     }
 
     .recrutement-image {
@@ -51,13 +51,27 @@
       font-weight: 700;
       font-size: 1.6rem;
       color: var(--accent);
-      margin-bottom: 15px;
+      margin-bottom: 8px;
     }
 
     .recrutement-text p {
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.5;
       color: #333;
+      margin: 4px 0 8px;
+    }
+
+    /* Listes plus compactes malgré les styles inline */
+    .recrutement-text ul { 
+      margin: 6px 0 10px !important; 
+      line-height: 1.5 !important; 
+    }
+    .recrutement-text li { 
+      margin: 4px 0; 
+    }
+    /* Réduction de l'espace du paragraphe d'intro centré */
+    #recrutement .container > p[style] { 
+      margin-bottom: 20px !important; 
     }
 
     @media (max-width: 900px) {
@@ -68,7 +82,7 @@
       .recrutement-divider {
         width: 80%;
         height: 3px;
-        margin: 20px 0;
+        margin: 12px 0;
         background: linear-gradient(90deg, var(--accent), var(--accent-2));
       }
       .recrutement-image img {
@@ -82,20 +96,21 @@
 <body>
   <main id="site-main">
     <!-- Navbar (harmonized with equipe.html) -->
-    <header class="navbar">
+     ﻿    <header class="navbar">
       <div class="nav-inner">
         <div class="logo">
           <img src="logo.jpg" alt="NAUMUR logo" id="site-logo">
+          <span class="company-name">NAUMUR</span> 
         </div>
         <nav>
           <div class="nav-links" id="nav-links">
-            <a href="index.html#presentation" class="nav-link" data-fr="Présentation" data-en="Presentation">Présentation</a><span style="color:#fff;font-size:30px;">I</span>
-            <a href="expertise.html" class="nav-link" data-fr="Expertise" data-en="Expertise">Expertise</a><span style="color:#fff;font-size:30px;">I</span>
-            <a href="equipe.html" class="nav-link" data-fr="Équipe" data-en="Team">Équipe</a><span style="color:#fff;font-size:30px;">I</span>
-            <a href="recrutement.html" class="nav-link active" data-fr="Recrutement" data-en="Recruitment">Recrutement</a><span style="color:#fff;font-size:30px;">I</span>
-            <a href="actualites.html" class="nav-link" data-fr="Actualités" data-en="News">Actualités</a><span style="color:#fff;font-size:30px;">I</span>
-            <a href="https://wa.me/237680224786" class="nav-link whatsapp" data-fr="Whatsapp" data-en="Whatsapp"><i class="fab fa-whatsapp"></i>&nbsp;<span data-fr="Whatsapp" data-en="Whatsapp">Whatsapp</span></a><span style="color:#fff;font-size:30px;">I</span>
-            <a href="#" class="nav-link" id="lang-toggle" data-fr="English" data-en="Français">English</a>
+            <a href="index.html#presentation" class="nav-link" data-fr="Présentation" data-en="Presentation">Présentation</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="expertise.html" class="nav-link" data-fr="Expertise" data-en="Expertise">Expertise</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="équipe.html" class="nav-link" data-fr="Équipe" data-en="Team">Équipe</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="recrutement.html" class="nav-link active" data-fr="Recrutement" data-en="Recruitment">Recrutement</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="references.html" class="nav-link" data-fr="Références" data-en="References">Références</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="https://wa.me/237680224786" class="nav-link whatsapp" data-fr="Whatsapp" data-en="Whatsapp"><i class="fab fa-whatsapp"></i>&nbsp;Whatsapp</a><span style="color: white;font-size: 30px;">I</span>
+            <a href="#" class="nav-link lang-switch" id="lang-toggle" data-fr="English" data-en="Français">English</a>
           </div>
           <button class="hamburger" id="hamburger"><i class="fa fa-bars"></i></button>
         </nav>
@@ -103,26 +118,24 @@
       <div class="mobile-menu" id="mobile-menu">
         <a href="index.html#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a>
         <a href="expertise.html" data-fr="Expertise" data-en="Expertise">Expertise</a>
-        <a href="equipe.html" data-fr="Équipe" data-en="Team">Équipe</a>
+        <a href="équipe.html" data-fr="Équipe" data-en="Team">Équipe</a>
         <a href="recrutement.html" data-fr="Recrutement" data-en="Recruitment">Recrutement</a>
-        <a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a>
-        <a href="https://wa.me/237680224786" class="whatsapp"><i class="fab fa-whatsapp"></i> <span data-fr="Whatsapp" data-en="Whatsapp">Whatsapp</span></a>
-        <a href="#" id="lang-toggle-mobile" data-fr="English" data-en="Français">English</a>
+        <a href="references.html" data-fr="Références" data-en="References">Références</a>
+        <a href="https://wa.me/237680224786" class="whatsapp" data-fr="Whatsapp" data-en="Whatsapp"><i class="fab fa-whatsapp"></i>Whatsapp</a>
+        <a href="#" id="lang-toggle" class="lang-switch" data-fr="English" data-en="Français">English</a>
       </div>
     </header>
+
 
     <!-- Contenu principal -->
     <section id="recrutement" class="presentation">
       <div class="container">
         <!-- Grand titre -->
-        <h1 style="font-weight: 800; font-size: 2.5rem; text-align: center; margin-bottom: 10px;" data-fr="Rejoignez l’équipe NAUMUR" data-en="Join the NAUMUR Team">
-          Rejoignez l’équipe NAUMUR
-        </h1>
+        <h1 style="font-weight: 800; font-size: 2.5rem; text-align: center; margin-bottom: 10px;">Recrutement chez Naumur</h1>
 
         <!-- Description -->
-        <p style="text-align: center; font-size: 1.1rem; color: var(--muted); max-width: 800px; margin: 0 auto 50px;" data-fr="Une aventure humaine et professionnelle tournée vers l’impact, l’innovation et la transformation des organisations." data-en="A human and professional adventure focused on impact, innovation, and organizational transformation.">
-          Une aventure humaine et professionnelle tournée vers l’impact, l’innovation et la transformation des organisations.
-        </p>
+        <p style="text-align: center; font-size: 1.1rem; color: var(--muted); max-width: 800px; margin: 0 auto 50px;text-align: justify;" data-fr="Chez NAUMUR, nous croyons que les plus belles transformations commencent autour d'une table, avec des passionnés qui partagent la même conviction : Notre ecosysteme mérite des conseil de qualité accessibles à tous. Nous sommes une entreprise où chaque voix compte, où chaque expertise nourrit notre vision collective" data-en="At NAUMUR, we believe that the most beautiful transformations begin around a table, with passionate individuals who share the same conviction: Our ecosystem deserves quality advice accessible to all. We are a company where every voice counts, where every area of ​​expertise enriches our collective vision.">
+         Chez NAUMUR, nous croyons que les plus belles transformations commencent autour d'une table, avec des passionnés qui partagent la même conviction : Notre ecosysteme mérite des conseil de qualité accessibles à tous. Nous sommes une entreprise où chaque voix compte, où chaque expertise nourrit notre vision collective
 
         <!-- Section Recrutement -->
         <h2 class="section-title" data-fr="Recrutement" data-en="Recruitment">Recrutement</h2>
@@ -130,7 +143,7 @@
         <div class="recrutement-grid">
           <!-- Image -->
           <div class="recrutement-image">
-            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=900&h=700&fit=crop" alt="Recrutement NAUMUR" data-fr="Recrutement NAUMUR" data-en="NAUMUR Recruitment">
+            <img src="img/recrutement.jpg" alt="Recrutement NAUMUR" data-fr="Recrutement NAUMUR" data-en="NAUMUR Recruitment">
           </div>
 
           <!-- Divider -->
@@ -138,42 +151,74 @@
 
           <!-- Texte -->
           <div class="recrutement-text">
-            <h3 data-fr="Nous recrutons des talents engagés" data-en="We are recruiting committed talent">Nous recrutons des talents engagés</h3>
-            <p style="max-width:850px; margin:0 auto; font-size:1.05rem; line-height:1.7; text-align:justify;" data-fr="Chez <strong>NAUMUR</strong>, nous croyons que la richesse d’une organisation réside avant tout dans la <strong>valeur humaine</strong> qui la compose. C’est pourquoi nous sommes en <strong>recherche continue de nouveaux talents</strong> pour renforcer notre équipe et enrichir notre diversité d’expertises.<br>Nous privilégions la <strong>formation interne</strong> et l’épanouissement professionnel de nos collaborateurs, car nous sommes convaincus que la transmission du savoir et la montée en compétence sont les fondations d’une performance durable et partagée.<br>Le cabinet <strong>NAUMUR</strong> recherche des collaborateurs motivés et passionnés pour accompagner le développement de ses projets dans les domaines du <strong>conseil</strong>, de la <strong>finance inclusive</strong>, de la <strong>formation</strong> et de la <strong>transformation digitale</strong>.<br>Si vous souhaitez rejoindre une équipe dynamique et contribuer à un impact réel sur le terrain, envoyez votre candidature à <a href='mailto:recrutement@naumur.com' style='color:var(--accent-2); font-weight:600;'>recrutement@naumur.com</a>." data-en="At <strong>NAUMUR</strong>, we believe that an organization’s strength lies primarily in the <strong>human value</strong> of its team. That’s why we are <strong>continuously seeking new talent</strong> to strengthen our team and enrich our diversity of expertise.<br>We prioritize <strong>internal training</strong> and professional development for our employees, as we are convinced that knowledge sharing and skill enhancement are the foundations of sustainable and shared performance.<br>The <strong>NAUMUR</strong> firm is looking for motivated and passionate collaborators to support the development of its projects in the areas of <strong>consulting</strong>, <strong>inclusive finance</strong>, <strong>training</strong>, and <strong>digital transformation</strong>.<br>If you wish to join a dynamic team and contribute to real impact on the ground, send your application to <a href='mailto:recrutement@naumur.com' style='color:var(--accent-2); font-weight:600;'>recrutement@naumur.com</a>." data-allow-html="true">
-              Chez <strong>NAUMUR</strong>, nous croyons que la richesse d’une organisation réside avant tout dans la <strong>valeur humaine</strong> qui la compose. C’est pourquoi nous sommes en <strong>recherche continue de nouveaux talents</strong> pour renforcer notre équipe et enrichir notre diversité d’expertises.<br>Nous privilégions la <strong>formation interne</strong> et l’épanouissement professionnel de nos collaborateurs, car nous sommes convaincus que la transmission du savoir et la montée en compétence sont les fondations d’une performance durable et partagée.<br>Le cabinet <strong>NAUMUR</strong> recherche des collaborateurs motivés et passionnés pour accompagner le développement de ses projets dans les domaines du <strong>conseil</strong>, de la <strong>finance inclusive</strong>, de la <strong>formation</strong> et de la <strong>transformation digitale</strong>.<br>Si vous souhaitez rejoindre une équipe dynamique et contribuer à un impact réel sur le terrain, envoyez votre candidature à <a href="mailto:recrutement@naumur.com" style="color:var(--accent-2); font-weight:600;">recrutement@naumur.com</a>.
-            </p>
-          </div>
+  <h3 data-fr="Nous recherchons des cœurs battants" data-en="We’re looking for passionate people">Nous recherchons des cœurs battants</h3>
+  <p data-fr="Votre profil nous intéresse si :" data-en="Your profile interests us if:">Votre profil nous intéresse si :</p>
+  <ul style="margin-left:18px; line-height:1.7;">
+    <li data-fr="Vous préférez la satisfaction d'un projet réussi" data-en="You value the satisfaction of a project well done">Vous préférez la satisfaction d'un projet réussi</li>
+    <li data-fr="Vous aimez rouler vos manches et apprendre en faisant" data-en="You like to roll up your sleeves and learn by doing">Vous aimez rouler vos manches et apprendre en faisant</li>
+    <li data-fr="Vous croyez que les meilleures solutions naissent de l'intelligence collective" data-en="You believe the best solutions come from collective intelligence">Vous croyez que les meilleures solutions naissent de l'intelligence collective</li>
+    <li data-fr="Votre motivation première est de voir votre travail impacter concrètement le développement" data-en="Your primary motivation is to see your work tangibly impact development">Votre motivation première est de voir votre travail impacter concrètement le développement</li>
+  </ul>
+
+  <h3 data-fr="Ce que nous vous offrons :" data-en="What we offer:">Ce que nous vous offrons :</h3>
+  <ul style="margin-left:18px; line-height:1.7;">
+    <li data-fr="Un cadre où vous grandirez en responsabilités, au rythme de votre progression" data-en="A place where you’ll grow in responsibility at your own pace">Un cadre où vous grandirez en responsabilités, au rythme de votre progression</li>
+    <li data-fr="La possibilité de toucher à tous nos métiers : données, stratégie, digital, finance" data-en="The opportunity to work across our practices: data, strategy, digital, finance">La possibilité de toucher à tous nos métiers : données, stratégie, digital, finance</li>
+    <li data-fr="Une équipe soudée qui partage ses succès comme ses défis" data-en="A close‑knit team that shares successes as well as challenges">Une équipe soudée qui partage ses succès comme ses défis</li>
+    <li data-fr="La fierté de construire quelque chose qui portera votre empreinte" data-en="The pride of building something that bears your mark">La fierté de construire quelque chose qui portera votre empreinte</li>
+  </ul>
+
+  <h3 data-fr="Comment nous rejoindre ?" data-en="How to join us?">Comment nous rejoindre ?</h3>
+  <p data-fr="Envoie‑nous :" data-en="Send us:">Envoie‑nous :</p>
+  <ul style="margin-left:18px; line-height:1.7;">
+    <li data-fr="Votre CV" data-en="Your CV">Votre CV</li>
+    <li data-fr="Une lettre qui nous parle de ce qui vous anime vraiment" data-en="A letter telling us what truly drives you">Une lettre qui nous parle de ce qui vous anime vraiment</li>
+    <li data-fr="Un partage sur un projet ou une cause qui vous tient à cœur" data-en="A note about a project or cause you care about">Un partage sur un projet ou une cause qui vous tient à cœur</li>
+  </ul>
+
+  <h3 data-fr="Nous promettons de :" data-en="We commit to:">Nous promettons de :</h3>
+  <ul style="margin-left:18px; line-height:1.7;">
+    <li data-fr="Lire chaque candidature avec attention" data-en="Read every application carefully">Lire chaque candidature avec attention</li>
+    <li data-fr="Répondre personnellement à chaque envoi" data-en="Reply personally to every submission">Répondre personnellement à chaque envoi</li>
+    <li data-fr="Privilégier la personnalité et les valeurs aux diplômes" data-en="Prioritise personality and values over degrees">Privilégier la personnalité et les valeurs aux diplômes</li>
+  </ul>
+
+  <p style="margin-top:10px; font-weight:600;"><span data-fr="Postule à :" data-en="Apply at:">Postule à :</span> <a href="mailto:contact@naumur.com" style="color:var(--accent-2);">recrutement@naumur.com</a></p>
+  <p style="margin-top:6px; color:var(--muted);" data-fr="Participons ensemble à la construction de l'excellence" data-en="Let’s build excellence together">Participons ensemble à la construction de l'excellence</p>
+</div>
         </div>
       </div>
     </section>
 
     <!-- Footer (harmonized with equipe.html) -->
-    <footer id="site-footer">
+
+     <footer id="site-footer">
       <div id="footer-content">
         <div class="footer-column">
-          <h4>NAUMUR</h4>
-          <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.7);" data-fr="Cabinet de conseil pionnier en Afrique, spécialisé en finance inclusive, accompagnement des PME, et solutions Data & Automatisation." data-en="Pioneering consulting firm in Africa, specialized in inclusive finance, SME support, and Data & Automation solutions.">
-            Cabinet de conseil pionnier en Afrique, spécialisé en finance inclusive, accompagnement des PME, et solutions Data & Automatisation.
-          </p>
+          <h4 data-fr="NAUMUR" data-en="NAUMUR">NAUMUR</h4>
+          <p style="font-size:14px; line-height:1.5; color:rgba(255,255,255,0.7);" data-fr="Société de conseil et de services. Partenaire du devellopement ." data-en="Consulting and service firm. Partner in development.">
+            Société de conseil et de services. Partenaire du devellopement.</p>
         </div>
+
         <div class="footer-column">
-          <h4 data-fr="Cabinet" data-en="Company">Cabinet</h4>
+          <h4 data-fr="Société NAUMUR" data-en="Company">Société NAUMUR</h4>
           <ul>
-            <li><a href="index.html#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a></li>
+            <li><a href="#presentation" data-fr="Présentation" data-en="Presentation">Présentation</a></li>
             <li><a href="expertise.html" data-fr="Expertise" data-en="Expertise">Expertise</a></li>
             <li><a href="equipe.html" data-fr="Équipe" data-en="Team">Équipe</a></li>
-            <li><a href="recrutement.html" data-fr="Recrutement" data-en="Recruitment">Recrutement</a></li>
+            <li><a href="recrutement.html" data-fr="Carrières" data-en="Careers">Carrières</a></li>
           </ul>
         </div>
+
         <div class="footer-column">
           <h4 data-fr="Informations" data-en="Information">Informations</h4>
           <ul>
-            <li><a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a></li>
+            <li><a href="references.html" data-fr="Références" data-en="References">Références</a></li>
             <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
-            <li><a href="mentions-legales.html" data-fr="Mentions Légales" data-en="Legal Notice">Mentions Légales</a></li>
             <li><a href="politique-confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
           </ul>
         </div>
+
         <div class="footer-column">
           <h4 data-fr="Nous contacter" data-en="Contact us">Nous contacter</h4>
           <ul>
@@ -182,107 +227,22 @@
           </ul>
           <div class="social-links" style="margin-top:15px;">
             <a href="https://linkedin.com/company/naumur" target="_blank" aria-label="LinkedIn NAUMUR"><i class="fab fa-linkedin"></i></a>
-            <a href="https://facebook.com/naumur" target="_blank" aria-label="Facebook NAUMUR"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61572230095352" target="_blank" aria-label="Facebook NAUMUR"><i class="fab fa-facebook"></i></a>
             <a href="https://wa.me/237680224786" target="_blank" aria-label="Whatsapp NAUMUR"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
+
       <div id="footer-bottom">
-        <div class="copyright">
-          &reg;NAUMUR - 2025 - <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span>
+        <div class="copyright" data-fr="©NAUMUR - 2025 - Tous droits réservés." data-en="©NAUMUR - 2025 - All rights reserved.">
+          &reg;NAUMUR - 2025 - Tous droits réservés.
         </div>
       </div>
     </footer>
+
   </main>
 
   <!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    const hamb = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (hamb && mobileMenu) {
-      hamb.addEventListener('click', () => {
-        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-      });
-    }
-
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('inview'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Language switch
-    let currentLang = localStorage.getItem('lang') || 'fr';
-
-    function switchLang() {
-      currentLang = (currentLang === 'fr') ? 'en' : 'fr';
-      localStorage.setItem('lang', currentLang);
-      
-      // Update all translatable elements
-      document.querySelectorAll('[data-fr]').forEach((el) => {
-        const txt = el.getAttribute(`data-${currentLang}`);
-        if (txt !== null) {
-          if (el.hasAttribute('data-allow-html')) {
-            el.innerHTML = txt; // Use innerHTML for elements with HTML content
-          } else {
-            el.textContent = txt; // Use textContent for plain text
-          }
-        }
-      });
-      
-      // Update meta description and keywords
-      const metaDescription = document.querySelector('meta[name="description"]');
-      const metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (metaDescription) {
-        const desc = metaDescription.getAttribute(`data-${currentLang}`);
-        if (desc) metaDescription.setAttribute('content', desc);
-      }
-      if (metaKeywords) {
-        const keywords = metaKeywords.getAttribute(`data-${currentLang}`);
-        if (keywords) metaKeywords.setAttribute('content', keywords);
-      }
-      
-      // Update toggle button labels
-      const toggles = document.querySelectorAll('#lang-toggle, #lang-toggle-mobile');
-      toggles.forEach((el) => {
-        el.textContent = (currentLang === 'fr') ? 'English' : 'Français';
-      });
-    }
-
-    // Initialize language on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      switchLang(); // Apply saved or default language
-    });
-
-    // Add event listeners with error handling
-    const langToggle = document.getElementById('lang-toggle');
-    const langToggleMobile = document.getElementById('lang-toggle-mobile');
-    
-    if (langToggle) {
-      langToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        switchLang();
-      });
-    }
-    
-    if (langToggleMobile) {
-      langToggleMobile.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (mobileMenu) mobileMenu.style.display = 'none';
-        switchLang();
-      });
-    }
-  </script>
-  <script>
-    // Make logo clickable to go home
-    (function(){
-      const logoEl = document.getElementById('site-logo');
-      if (logoEl) {
-        logoEl.style.cursor = 'pointer';
-        logoEl.addEventListener('click', function(){ window.location.href = 'index.html'; });
-      }
-    })();
-  </script>
-  </body>
+  <script src="menu.js"></script>
+</body>
 </html>
